@@ -1,0 +1,1 @@
+We can take bean properties of spring bean class as static properties. But the setter methods designed for setter injection must not be taken as static methods. Because spring is not designed to perform setter injection by using static setter methods.

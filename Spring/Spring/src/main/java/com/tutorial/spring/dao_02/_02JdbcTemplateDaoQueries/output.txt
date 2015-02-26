@@ -1,0 +1,21 @@
+---------- java ----------
+Jul 2, 2011 4:53:23 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1bd747e: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1bd747e]; startup date [Sat Jul 02 16:53:23 IST 2011]; root of context hierarchy
+Jul 2, 2011 4:53:23 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [applicationContext.xml]
+Jul 2, 2011 4:53:24 PM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext@1bd747e]: org.springframework.beans.factory.support.DefaultListableBeanFactory@1efb836
+Jul 2, 2011 4:53:24 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1efb836: defining beans [dbcp,template,sel]; root of factory hierarchy
+Employee count with Clerk disgnation is: 4
+Details of empno: 7934 are: {EMPNO=7934, ENAME=MILLER, JOB=CLERK, MGR=7782, HIREDATE=1982-01-23 00:00:00.0, SAL=1300, COMM=null, DEPTNO=10}
+Clerk designation employees details are: 
+{EMPNO=7369, ENAME=SMITH, JOB=CLERK, MGR=7902, HIREDATE=1980-12-17 00:00:00.0, SAL=800, COMM=null, DEPTNO=20}
+{EMPNO=7876, ENAME=ADAMS, JOB=CLERK, MGR=7788, HIREDATE=1987-05-23 00:00:00.0, SAL=1100, COMM=null, DEPTNO=20}
+{EMPNO=7900, ENAME=JAMES, JOB=CLERK, MGR=7698, HIREDATE=1981-12-03 00:00:00.0, SAL=950, COMM=null, DEPTNO=30}
+{EMPNO=7934, ENAME=MILLER, JOB=CLERK, MGR=7782, HIREDATE=1982-01-23 00:00:00.0, SAL=1300, COMM=null, DEPTNO=10}
+Employee registered true
+Employee designation updated true
+Employee fired true
+
+Output completed (12 sec consumed) - Normal Termination

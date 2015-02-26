@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<import resource="classpath:com/tutorial/spring/orm_03/DataSource.xml" />
+	<!-- <bean id = "ds" class = "org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName"> <value>oracle.jdbc.driver.OracleDriver</value> 
+		</property> <property name="url"> <value>jdbc:oracle:thin:@localhost:1521:XE</value> 
+		</property> <property name="username"> <value>TRAINING</value> </property> 
+		<property name="password"> <value>training</value> </property> </bean> -->
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="mappingResources">
+			<list>
+				<value>com/tutorial/spring/orm_03/_02SpringHibernateApproach1/User.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="d1"
+		class="com.tutorial.spring.orm_03._02SpringHibernateApproach1.DemoImpl">
+		<property name="factory" ref="mySessionFactory" />
+	</bean>
+</beans>
+

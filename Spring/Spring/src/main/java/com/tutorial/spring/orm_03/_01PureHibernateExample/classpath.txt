@@ -1,0 +1,26 @@
+Main jar file:
+
+1. D:\hibernate-3.2\hibernate3.jar
+
+Dependency jar file
+-----------------------------------------
+
+1. D:\hibernate-3.2\lib\dom4j-1.6.1.jar;
+
+2. D:\hibernate-3.2\lib\cglib-2.1.3.jar;
+
+3. D:\hibernate-3.2\lib\commons-collections-2.1.1.jar;
+
+4. D:\hibernate-3.2\lib\commons-logging-1.0.4.jar;
+
+5. D:\hibernate-3.2\lib\jta.jar;
+
+6. D:\hibernate-3.2\lib\asm.jar;
+
+7. D:\hibernate-3.2\lib\antlr-2.7.6.jar;
+
+
+Database specific jar:
+--------------------------------
+
+1. D:\oracle\ora92\jdbc\lib\classes12.jar

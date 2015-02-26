@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id = "propConfig" class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>com/tutorial/spring/core_01/applicationContextContainer/_05MultiplePropertiesFiles/pf/pf2.properties</value>
+				<value>com/tutorial/spring/core_01/applicationContextContainer/_05MultiplePropertiesFiles/pf/pf1.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id = "db" class = "com.tutorial.spring.core_01.applicationContextContainer._05MultiplePropertiesFiles.DemoBean">
+		<property name="name">
+			<value>${name}</value>
+		</property>
+		<property name="email">
+			<value>${email}</value>
+		</property>
+		<property name="address">
+			<value>${address}</value>
+		</property>
+		<property name="age">
+			<value>${age}</value>
+		</property>
+	</bean>
+	
+</beans>

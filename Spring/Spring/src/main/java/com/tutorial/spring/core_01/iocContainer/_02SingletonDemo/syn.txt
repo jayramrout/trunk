@@ -1,0 +1,35 @@
+1) install j2se1.5.0
+        JAVA_HOME=C:\Program Files\Java\jdk1.5.0
+        Path=C:\Program Files\Java\jdk1.5.0\bin;
+2)  extract spring-framework-1.2.8.zip
+      
+3) create sminfospring directory   in e:\ drive
+     copy  spring.jar &  commons-logging.jar  in sminfospring 
+	directory
+	and set classpath
+	e:\sminfospring\spring.jar;
+	e:\sminfospring\commons-logging.jar;.;
+	
+4)  create demo1  directory 
+   a)  create interface  and declare methods( DemoInter.java)
+   b)  create implementation class 
+	and define methods   (DemoInterImpl.java)
+    c)   spring configuration file  (Demo.xml)
+	beans
+	       \
+	         bean    -     id,class
+	               \
+		property   -   name
+		            \
+		               value
+        d)  create java application  to request bean methods
+	
+          org.springframework.core.io package
+	Resource res=new ClassPathResource("xx.xml");
+           org.springframework.beans.factory package
+		BeanFactory
+	org.springframework.beans.factory.xml package
+		XmlBeanFactory
+               BeanFactory factory=new XmlBeanFactory(res);
+	   |
+ public Object   getBean("ref name of the bean");

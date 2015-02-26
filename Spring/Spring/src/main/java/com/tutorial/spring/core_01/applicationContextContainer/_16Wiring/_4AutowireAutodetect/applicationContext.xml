@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- <bean id = "tb" class = "TestBean"> Explicit wiring <property name="msg"> 
+		<value>Gmg. friends... Have a joyful day. :)</value> </property> </bean> -->
+	<bean id="t2"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._4AutowireAutodetect.TestBean"> <!-- Explicit wiring -->
+		<property name="msg">
+			<value>GANoon. friends... Have a joyful time. :)</value>
+		</property>
+	</bean>
+	
+	<bean id="db"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._4AutowireAutodetect.DemoBean"
+		autowire="autodetect" />
+</beans>
+
+<!--  If we are using autodetect : and your bean has got both constructor injection and setter injection , then constructor
+will take the higher precedence -->

@@ -1,0 +1,5 @@
+create table event 
+(
+	eid number(5) primary key,
+	evname varchar2(25)
+)

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<import resource="classpath:com/tutorial/spring/dao_02/DataSource.xml"/>
+	<bean id="sel" class="com.tutorial.spring.dao_02._01ConnectionPooling._01DAOConnectionPoolingDummy.SelectImple">
+		<property name="ds" ref="dataSource"/>
+	</bean>
+</beans>

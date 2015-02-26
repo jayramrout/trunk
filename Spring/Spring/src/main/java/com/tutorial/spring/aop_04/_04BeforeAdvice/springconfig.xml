@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="adv1" class="com.tutorial.spring.aop_04._04BeforeAdvice.BeforeAdvice1" />
+	<bean id="adv2" class="com.tutorial.spring.aop_04._04BeforeAdvice.AroundAdvice2" />
+
+	<bean id="advr1"
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="adv1" />
+		</property>
+
+		<property name="mappedName">
+			<value>method1</value>
+		</property>
+	</bean>
+	
+	<bean id="advr2"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="adv2" />
+		</property>
+		<property name="pattern">
+			<value>.*</value>
+		</property>
+	</bean>
+
+	<bean id="targetobj" class="com.tutorial.spring.aop_04._04BeforeAdvice.BusinessLogic" />
+
+	<bean id="proxyobj" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.tutorial.spring.aop_04._04BeforeAdvice.IBusinessLogic</value>
+		</property>
+		<property name="target">
+			<ref local="targetobj" />
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>advr1</value><!-- advr1 = before advice -->
+				<value>advr2</value>		 <!--around advice -->
+			</list>
+		</property>
+	</bean>
+
+</beans>

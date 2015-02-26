@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="dat" class="java.util.Date" />
+
+	<bean id="tbean"
+		class="com.tutorial.spring.core_01.iocContainer._10ConstructorInjectionBeanTypes.TestBean">
+		<property name="msg">
+			<value>Hello</value>
+		</property>
+	</bean>
+
+	<bean id="db"
+		class="com.tutorial.spring.core_01.iocContainer._10ConstructorInjectionBeanTypes.DemoImple">
+		<constructor-arg>
+			<value>99.9</value>
+		</constructor-arg>
+		<!--Injecting a constructor using bean reference -->
+		<constructor-arg>
+			<ref bean="tbean" />
+		</constructor-arg>
+
+		<constructor-arg>
+			<ref bean="dat" />
+		</constructor-arg>
+
+		<constructor-arg>
+			<list>
+				<value>Apple</value>
+				<value>Banana</value>
+				<value>Orange</value>
+			</list>
+		</constructor-arg>
+
+		<constructor-arg>
+			<list>
+				<value>Carrot</value>
+				<value>Potato</value>
+				<value>Mushrooms</value>
+				<!-- any objects can be stored in a List -->
+				<ref bean="dat" />
+				<ref bean="tbean" />
+				<value>Tomato</value>
+			</list>
+		</constructor-arg>
+
+		<constructor-arg>
+			<set>
+				<value>7569670669</value>
+				<value>9502166767</value>
+			</set>
+		</constructor-arg>
+
+		<constructor-arg>
+			<set>
+				<value>test1@gmail.com</value>
+				<value>test@test.com</value>
+			</set>
+		</constructor-arg>
+
+		<constructor-arg>
+			<map>
+				<entry>
+					<key>
+						<value>Sai</value>
+					</key>
+					<value>Universal King</value>
+				</entry>
+
+				<entry>
+					<key>
+						<value>Rajesh</value>
+					</key>
+					<value>Service Provider</value>
+				</entry>
+			</map>
+		</constructor-arg>
+
+
+		<constructor-arg>
+			<map>
+				<entry>
+					<key>
+						<value>Sathya</value>
+					</key>
+
+					<value>Boon for learners</value>
+				</entry>
+
+				<entry>
+					<key>
+						<ref bean="dat" />
+					</key>
+
+					<ref bean="tbean" />
+				</entry>
+			</map>
+		</constructor-arg>
+
+		<constructor-arg>
+			<props>
+				<prop key="Jayram">Trainer</prop>
+				<prop key="Mahesh">.net Faculty</prop>
+			</props>
+		</constructor-arg>
+
+		<constructor-arg>
+			<list>
+				<value>Java</value>
+				<value>.net</value>
+				<value>Oracle</value>
+			</list>
+		</constructor-arg>
+
+		<constructor-arg>
+			<list>
+				<value>30</value>
+				<value>40</value>
+			</list>
+		</constructor-arg>
+
+	</bean>
+</beans>

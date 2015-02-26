@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dat" class="java.util.Date" />
+	<bean id="tbean"
+		class="com.tutorial.spring.core_01.iocContainer._07BeanPropertyTypes.TestBean">
+		<property name="msg">
+			<value>Hello</value>
+		</property>
+		<property name="dt">
+			<ref bean="dat" />
+		</property>
+	</bean>
+
+	<bean id="db"
+		class="com.tutorial.spring.core_01.iocContainer._07BeanPropertyTypes.DemoImple">
+		<property name="salary" value="5000"/>
+
+		<property name="tb" ref="tbean" />
+
+		<property name="dt">
+			<ref bean="dat" />
+		</property>
+
+		<property name="fruits">
+			<list>
+				<value>Apple</value>
+				<value>Banana</value>
+				<value>Orange</value>
+			</list>
+		</property>
+
+		<property name="veg">
+			<list>
+				<value>Carrot</value>
+				<value>Potato</value>
+				<value>Mushrooms</value>
+				<!-- any objects can be stored in a List -->
+				<ref bean="dat" />
+				<ref bean="tbean" />
+				<value>Tomato</value>
+			</list>
+		</property>
+
+		<property name="phone_nos">
+			<set>
+				<value>7569670669</value>
+				<value>9502166767</value>
+			</set>
+		</property>
+
+		<property name="emails">
+			<set>
+				<value>jayram@gmail.com</value>
+				<value>jayram@yahoo.com</value>
+			</set>
+		</property>
+		
+		<property name="perDetails">
+			<map>
+				<entry key="Sai" value="Universal King" />
+				<entry>
+					<key>
+						<value>Jayram</value>
+					</key>
+					<value>Service Provider</value>
+				</entry>
+			</map>
+		</property>
+		<property name="capitals">
+			<map>
+				<entry key="Satya" value="Born to learn" />
+				<entry>
+					<key>
+						<ref bean="dat" />
+					</key>
+					<ref bean="tbean" />
+				</entry>
+				
+			</map>
+		</property>
+
+		<property name="faculties">
+			<props>
+				<prop key="Kanakadhar">Java Faculty</prop>
+				<prop key="Mahesh">.net Faculty</prop>
+			</props>
+		</property>
+
+		<property name="courses">
+			<list>
+				<value>Java</value>
+				<value>.net</value>
+				<value>Oracle</value>
+			</list>
+		</property>
+
+		<property name="runs">
+			<list>
+				<value>30</value>
+				<value>40</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

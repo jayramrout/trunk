@@ -1,0 +1,6 @@
+create table users
+(
+	userid number(5) primary key,
+	uname varchar2(20),
+	role varchar2(20)
+)
