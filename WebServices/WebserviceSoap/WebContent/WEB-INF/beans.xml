@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" /> 
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
+
+	<jaxws:endpoint 
+	  id="orderProcess" 
+	  implementor="com.tutorial.ws.OrderProcessImpl" 
+	  address="/OrderProcess" />
+	  
+</beans>
+
+<!-- 
+<jaxws:endpoint> element signifies that the CXF internally uses JAX-WS
+	frontend to publish the web service
+
+• id—specifies a unique identifier for a bean. In this case, jaxws:endpoint is
+	a bean, and the id name is orderProcess.
+• implementor—specifies the actual web service implementation class. In this
+	case, our implementor class is OrderProcessImpl.
+• address—specifies the URL address where the endpoint is to be published.
+	The URL address must to be relative to the web context. For our example,
+	the endpoint will be published using the relative path /OrderProcess. 
+-->

@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<jaxws:client id="orderClient" serviceClass="com.tutorial.ws.OrderProcess"
+		address="http://localhost:8080/WebServiceCXF/OrderProcess" />
+</beans>
+<!-- 
+The <jaxws:client> element in the client-beans.xml file specifies the client bean
+using JAX-WS frontend. The element is defined with the following three attributes:
+• id—specifies a unique identifier for a bean. In this case, jaxws:client is a
+bean and the id name is orderClient. The bean will represent an SEI.
+• serviceClass—specifies the web service SEI. In this case our SEI class is
+OrderProcess
+• address—specifies the URL address where the endpoint is
+published. In this case the endpoint is published at the URL address: http://localhost:8080/WebServiceCXF/OrderProcess 
+-->

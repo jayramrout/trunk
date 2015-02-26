@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<jaxws:client id="orderClient" serviceClass="com.tutorial.ws.OrderProcess"
+		address="http://localhost:8081/WSSecure_X509_Web/OrderProcess">
+		<jaxws:inInterceptors>
+			<ref bean="TimestampSignEncrypt_Response" />
+			<bean class="org.apache.cxf.ws.security.wss4j.CryptoCoverageChecker" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="TimestampSignEncrypt_Request" />
+		</jaxws:outInterceptors>
+	</jaxws:client>
+	
+	<bean id="myPasswordCallback" class="com.tutorial.ws.ClientKeystorePasswordCallback" />
+	<bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor"
+		id="TimestampSignEncrypt_Request">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="Timestamp Signature Encrypt" />
+				<entry key="user" value="myclientkey" />
+				<entry key="signaturePropFile" value="clientKeystore.properties" />
+				<entry key="encryptionPropFile" value="clientKeystore.properties" />
+				<entry key="encryptionUser" value="myservicekey" />
+				<entry key="passwordCallbackClass" value="com.tutorial.ws.ClientKeystorePasswordCallback" />
+				<entry key="signatureParts"
+					value="{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Timestamp;{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body" />
+				<entry key="encryptionParts"
+					value="{Element}{http://www.w3.org/2000/09/xmldsig#}Signature;{Content}{http://schemas.xmlsoap.org/soap/envelope/}Body" />
+				<entry key="encryptionSymAlgorithm" value="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+				<entry key="encryptionKeyTransportAlgorithm" value="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+				<entry key="signatureAlgorithm" value="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+			</map>
+		</constructor-arg>
+	</bean>
+	<bean 
+        class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor"
+        id="TimestampSignEncrypt_Response">
+        <constructor-arg>
+            <map>
+                <entry key="action" value="Timestamp Signature Encrypt"/>
+                <entry key="signaturePropFile" value="clientKeystore.properties"/>
+                <entry key="decryptionPropFile" value="clientKeystore.properties"/>
+                <entry key="passwordCallbackClass" value="com.tutorial.ws.ClientKeystorePasswordCallback"/>
+                <entry key="encryptionKeyTransportAlgorithm" value="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+                <entry key="signatureAlgorithm" value="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+            </map>
+        </constructor-arg>
+    </bean>
+</beans>

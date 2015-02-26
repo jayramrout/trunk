@@ -1,0 +1,29 @@
+1. Creating private key with given alias and password like "myAlias"/"myAliasPassword" in keystore (protected by password for security reasons)
+keytool -genkey -alias myAlias -keypass myAliasPassword -keystore privatestore.jks -storepass keyStorePassword -dname "cn=myAlias" -keyalg RSA
+The alias is simply a way to identify the key pair. In this instance we are using the RSA algorithm.
+
+2. Self-sign our certificate (in production environment this will be done by a company like Verisign).
+keytool -selfcert -alias myAlias -keystore privatestore.jks -storepass keyStorePassword -keypass myAliasPassword
+
+3. Export the public key from our private keystore to file named key.rsa
+keytool -export -alias myAlias -file key.rsa -keystore privatestore.jks -storepass keyStorePassword
+
+4. Import the public key to new keystore:
+keytool -import -alias myAlias  -file key.rsa -keystore publicstore.jks -storepass keyStorePassword
+
++++++++++++++++++++++++++++++++++++++++++==========================++++++++++++++++++++++++++++++++++++++++++++++++++
+SECOND APPROACH
+
+Create key pairs for the client and the web service provider. We'll be creating two key pairs using Java keytool--one for the web service provider and the other for the client. Run the following commands to create these keys:
+
+keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 730 -alias myservicekey -keypass skpass -storepass sspass -keystore serviceKeystore.jks -dname "cn=localhost"
+keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 730 -alias myclientkey  -keypass ckpass -storepass cspass -keystore clientKeystore.jks -dname "cn=clientuser"
+Note these keys are self-signed so should not be used in actual production, and of course the passwords used should be different in your production work. (You may also wish to have the keys expire sooner than the 730 days, or two years, given above.) Also I've found the case sensitivity of key aliases to vary depending on the tool generating and/or processing them; for that reason I've kept the aliases all lowercase here.
+
+Next, we'll be setting up two-way trust between the SOAP client and web service provider, which involves each one's public key being loaded into the keystore of the other. The following commands will accomplish this:
+
+keytool -export -rfc -keystore clientKeystore.jks -storepass cspass -alias myclientkey -file MyClient.cer
+keytool -import -trustcacerts -keystore serviceKeystore.jks -storepass sspass -alias myclientkey -file MyClient.cer -noprompt
+
+keytool -export -rfc -keystore serviceKeystore.jks -storepass sspass -alias myservicekey -file MyService.cer
+keytool -import -trustcacerts -keystore clientKeystore.jks -storepass cspass -alias myservicekey -file MyService.cer -noprompt
