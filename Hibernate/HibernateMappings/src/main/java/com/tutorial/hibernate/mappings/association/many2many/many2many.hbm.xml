@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?> <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- The <set> element sets the relationship between Certificate and Employee 
+		classes. cascade attribute is set to save-update to tell Hibernate to persist 
+		the Certificate objects for SAVE i.e. CREATE and UPDATE operations at the 
+		same time as the Employee objects. 
+		The name attribute is set to the defined 
+		Set variable in the parent class, in our case it is certificates. For each 
+		set variable, we need to define a separate set element in the mapping file. 
+		Here we used name attribute to set the intermediate table name to EMP_CERT. 
+		 The <key> element is the column in the EMP_CERT table that holds the foreign 
+		key to the parent object ie. table EMPLOYEE and links to the certification_id 
+		in the CERTIFICATE table.  The <many-to-many> element indicates that one 
+		Employee object relates to many Certificate objects and column attributes 
+		are used to link intermediate EMP_CERT. -->
+ 	<class
+		name="com.tutorial.hibernate.mappings.association.many2many.Employee"
+		table="EMPLOYEE">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<set name="certificates" cascade="save-update" table="EMP_CERT" >
+			<key column="employee_id" />
+			<many-to-many column="certificate_id"
+				class="com.tutorial.hibernate.mappings.association.many2many.Certificate" />
+		</set>
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="salary" column="salary" type="int" />
+	</class>
+	
+	<class name="com.tutorial.hibernate.mappings.association.many2many.Certificate" table="CERTIFICATE">
+		<meta attribute="class-description"> 
+			This class contains the certificate records.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="name" column="certificate_name" type="string" />
+	</class>
+</hibernate-mapping>

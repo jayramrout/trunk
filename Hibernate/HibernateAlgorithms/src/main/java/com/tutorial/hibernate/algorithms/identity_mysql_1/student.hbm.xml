@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.tutorial.hibernate.algorithms.identity_mysql_1.StudentBean"
+		table="student">
+
+		<id name="sid">
+			<generator class="identity" />
+		</id>
+
+		<property name="sname" column="sname" />
+
+		<property name="tot_m" />
+
+	</class>
+
+</hibernate-mapping>

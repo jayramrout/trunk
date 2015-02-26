@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+  <session-factory>
+
+<!-- Connection details -->
+    <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">hr</property>
+    <property name="hibernate.connection.password">hr</property>
+<!-- Connection details -->
+
+<!-- AutoCommit Disable -->
+	<property name="hibernate.connection.autocommit">false</property>
+<!-- AutoCommit Disable -->
+
+<!-- To displya SQL generated after running the program -->
+	<property name="hibernate.show_sql">true</property>
+<!-- To displya SQL generated after running the program -->
+
+<!-- JDBC transaction -->	
+	<!-- <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> -->
+<!-- JDBC transaction -->
+
+<!-- Mapping file -->
+	<mapping resource="hibernateproj/emp.hbm.xml"/>
+	
+  </session-factory>
+
+</hibernate-configuration>

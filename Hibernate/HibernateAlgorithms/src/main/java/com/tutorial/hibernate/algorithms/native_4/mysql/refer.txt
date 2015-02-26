@@ -1,0 +1,3 @@
+supports both oracle n mysql
+
+for oracle add param tag n configure sequence.

@@ -1,0 +1,18 @@
+<ehcache>
+
+	<diskStore path="user.dir" />  <!-- current working directory -->
+
+<!-- 	
+	defaultCache will be used for all the persistent classes. We can also define persistent class explicitely by using the cache element.
+	eternal If we specify eternal="true", we don't need to define timeToIdleSeconds and timeToLiveSeconds attributes because it will be handled by hibernate internally. Specifying eternal="false" gives control to the programmer, but we need to define timeToIdleSeconds and timeToLiveSeconds attributes.
+	timeToIdleSeconds It defines that how many seconds object can be idle in the second level cache.
+	timeToLiveSeconds It defines that how many seconds object can be stored in the second level cache whether it is idle or not.
+ -->
+
+	<defaultCache maxElementsInMemory="1000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="600" overflowToDisk="true" />
+
+	<cache name="com.tutorial.hibernate.cache.level2.eh_cache.StudentBean"
+		maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="4"
+		timeToLiveSeconds="10" overflowToDisk="true" />
+</ehcache>

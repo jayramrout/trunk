@@ -1,0 +1,7 @@
+create table student
+(
+sid numeric(5) primary key,
+sname varchar2(20),
+tot_m numeric(5, 2)
+)
+/

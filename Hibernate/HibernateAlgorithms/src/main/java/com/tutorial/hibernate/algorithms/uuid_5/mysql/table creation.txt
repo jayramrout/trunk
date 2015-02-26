@@ -1,0 +1,8 @@
+uuid-mysql [universal unique identifier]
+
+CREATE TABLE `bank` (
+  `acno` varchar(32) NOT NULL,
+  `name` varchar(20) default NULL,
+  PRIMARY KEY  (`acno`)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  

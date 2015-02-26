@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.excel.user.StudentCollegeEntity" table="table_studentm21">
+		<id name="sid" type="java.lang.Long" column="sid">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="sname" type="java.lang.String" column="sname" length="9"></property>
+      <many-to-one name="ce" class="com.excel.user.CollegeEntity" column="collegecode_fk"></many-to-one>
+	</class>
+
+	<class name="com.excel.user.CollegeEntity" table="table_collegem21">
+		<id name="collegecode" type="java.lang.Long" column="collegecode">
+			<generator class="assigned" />
+		</id>
+		<property name="cname" type="java.lang.String" column="cname"></property>
+	</class>
+
+</hibernate-mapping>

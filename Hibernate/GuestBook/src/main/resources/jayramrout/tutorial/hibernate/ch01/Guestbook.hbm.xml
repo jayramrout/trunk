@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="jayramrout.tutorial.hibernate">
+    <class name="ch01.Guestbook" table="guestbook" catalog="guestbook">
+        <id name="visitorNo" type="java.lang.Integer">
+            <column name="VisitorNo" />
+            <generator class="identity" />
+        </id>
+        <property name="visitorName" type="string">
+            <column name="VisitorName" length="50" />
+        </property>
+        <property name="message" type="string">
+            <column name="Message" length="100" />
+        </property>
+        <property name="messageDate" type="string">
+            <column name="MessageDate" length="40" />
+        </property>
+    </class>
+</hibernate-mapping>

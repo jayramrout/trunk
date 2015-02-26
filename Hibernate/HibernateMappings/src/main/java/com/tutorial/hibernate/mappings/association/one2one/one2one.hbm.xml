@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?> <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!--
+		The <many-to-one>
+		element will be used to define the rule to establish a one-to-one
+		relationship between EMPLOYEE and ADDRESS entities but column
+		attribute will be set to unique constraint and rest of the mapping file
+		will remain as it was in case of many-to-one association. -->
+		
+	<class name="com.tutorial.hibernate.mappings.association.one2one.Employee" table="EMPLOYEE">
+		<meta attribute="class-description"> This class contains the employee detail. </meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="salary" column="salary" type="int" />
+		<many-to-one name="address" column="address" unique="true" class="com.tutorial.hibernate.mappings.association.one2one.Address"
+			not-null="true" />
+	</class>
+	<class name="com.tutorial.hibernate.mappings.association.one2one.Address" table="ADDRESS">
+		<meta attribute="class-description"> This class contains the address detail. </meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="street" column="street_name" type="string" />
+		<property name="city" column="city_name" type="string" />
+		<property name="state" column="state_name" type="string" />
+		<property name="zipcode" column="zipcode" type="string" />
+	</class>
+</hibernate-mapping>

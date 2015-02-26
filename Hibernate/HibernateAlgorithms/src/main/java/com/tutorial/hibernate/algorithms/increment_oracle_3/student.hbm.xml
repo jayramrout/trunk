@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.tutorial.hibernate.algorithms.increment_oracle_3.StudentBean" table="student">
+		<id name="sid">
+		<!--It is supported by all database-->
+			<generator class = "increment"/>
+		</id>
+		<property name="sname"/>
+		<property name="tot_m"/>
+	</class>
+</hibernate-mapping>

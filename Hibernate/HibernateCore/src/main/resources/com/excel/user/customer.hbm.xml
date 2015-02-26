@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.excel.compositePK4.CustomerBean" table="customer">
+
+<composite-id name="key" class="com.excel.compositePK4.CompKey">
+	<key-property name="cid" column="cid" type="int"/>
+	<key-property name="tid" column="tid" type="int"/>
+</composite-id>
+
+<property name="amount" column="amount" type="float"/>
+
+</class>
+</hibernate-mapping>

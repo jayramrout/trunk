@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="info">
+	<class name="com.excel.user.Person" table="person_tab">
+		<id name="pid">
+			<generator class="increment" />
+		</id>
+		<property name="pname" />
+		<component name="pjob" class="com.excel.user.JobType">
+			<property name="job" />
+			<property name="salary" />
+			<property name="department" />
+		</component>
+	</class>
+</hibernate-mapping>
