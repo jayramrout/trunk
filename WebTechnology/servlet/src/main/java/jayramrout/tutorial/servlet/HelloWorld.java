@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 /**
- * Servlet implementation class HelloWorld
+ * @author Jayram
+ *
  */
 @WebServlet(name="HelloWorld" ,description = "My Hello World", urlPatterns = { "/helloWorld" })
 public class HelloWorld extends HttpServlet {
@@ -29,6 +30,6 @@ public class HelloWorld extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logger.info("Inside Service Method...");
+		logger.info("Inside Service Method of HelloWorld");
 	}
 }
