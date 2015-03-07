@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tutorial.jayramrout/employee/schemas"
+	xmlns:emp="http://tutorial.jayramrout/employee/schemas" elementFormDefault="qualified">
+	<element name="EmployeeRequest">
+		<complexType>
+			<all>
+				<element name="Employee" type="emp:EmployeeType"></element>
+			</all>
+		</complexType>
+	</element>
+	
+	<complexType name="EmployeeType">
+		<sequence>
+			<element name="FirstName"  type="string"/>
+			<element name="LastName"  type="string"/>
+		</sequence>
+	</complexType>
+</schema>
