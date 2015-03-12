@@ -31,11 +31,19 @@
     <!-- Message Receiver Definition -->
     <bean id="messageReceiver" class="com.tutorial.jms.receiver.SpringMessageReceiver">
     </bean>
- 
+    
+ 	<!-- <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="StudentTopic"/>
+    </bean> -->
+    
     <bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory" />
-        <!-- <property name="destinationName" value="${jms.queue.name}" /> -->
-        <property name="destinationName" value="MyActiveMQQueue" />
+        <!-- For Queue only name is OK to give-->
+        <!-- <property name="destinationName" value="StudentTopic" /> -->
+        
+        <!-- For Topic, we have to create a topicDestination Bean and use below-->
+        <!-- <property name="destination" ref="topicDestination" /> -->
+        
         <property name="messageListener" ref="messageReceiver" />
     </bean>
 
