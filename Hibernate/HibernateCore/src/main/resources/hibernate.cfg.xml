@@ -11,21 +11,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.default_schema">HR</property>
         <property name="show_sql">true</property>
-        <mapping resource="com/excel/user/DBUser.hbm.xml"></mapping>
-        
-        <!-- <mapping resource="com/excel/user/customer.hbm.xml"/> -->
-        
-        <!--mapping resource="com/excel/user/Person.hbm.xml"/-->
-        <!-- <mapping resource="com/excel/user/StudentEntityPK.hbm.xml"/> -->
-        <!-- <mapping resource="com/excel/user/StudentEntityFK.hbm.xml"/> -->
-        
-        <!-- <mapping resource="com/excel/user/StudentCollegeEntity.hbm.xml" /> -->
-       <!--  <mapping resource="com/excel/associations6/one2many2/StudentEntity.hbm.xml" /> -->
-       <!-- <mapping resource="com/excel/associations6/one2manymany2one_3/StudentEntity.hbm.xml" /> -->
-        <!-- <mapping class="com.excel.user.DBUser"></mapping> -->
-        <!-- <mapping resource="com/excel/cache/Level1Cache/student.hbm.xml"/> -->
-        <!-- <mapping resource="com/excel/cache/Level2Cache/EHCache/student.hbm.xml"/> -->
-        
-        <!-- <mapping resource="com/excel/cache/Level2Cache/OSCache/student.hbm.xml"/> -->
+        <mapping resource="jrout/tutorial/hibernatecore/DBUser.hbm.xml"></mapping>
+		<!-- <mapping class="jrout.tutorial.hibernatecore.user.DBUser"></mapping> -->
+        <!-- <mapping resource="jrout/tutorial/hibernatecore/customer.hbm.xml"/> -->
     </session-factory>
 </hibernate-configuration>
