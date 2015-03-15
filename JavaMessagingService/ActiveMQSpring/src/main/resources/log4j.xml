@@ -17,12 +17,12 @@
         </layout>
     </appender>
     
-	<logger name="jayramrout.tutorial.hibernate">
+	<logger name="jrout.tutorial.jmsjava">
         <level value="INFO"/>
     </logger>
     
     <root>
-        <priority value ="info" />
+        <priority value ="DEBUG" />
         <appender-ref ref="Console"/>
         <!-- <appender-ref ref="LogFile"/> -->
      </root>
