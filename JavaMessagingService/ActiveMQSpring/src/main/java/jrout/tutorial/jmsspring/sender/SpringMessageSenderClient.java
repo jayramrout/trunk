@@ -1,4 +1,4 @@
-package com.tutorial.jms.sender;
+package jrout.tutorial.jmsspring.sender;
 
 /**
  * 
@@ -22,9 +22,11 @@ public class SpringMessageSenderClient {
 		SpringMessageSender sender = (SpringMessageSender) ctx.getBean("messageSender");
 		Map map = new HashMap();
 		map.put("Name", "Jayram Rout");
-		map.put("Place", "Concord");
+		map.put("Place", "Nashua");
+		
 		sender.send(map);
 		
 		ctx.close();
+		System.out.println("Message is been sent");
 	}
 }

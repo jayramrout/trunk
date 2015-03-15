@@ -1,17 +1,13 @@
-package com.tutorial.jms.sender;
+package jrout.tutorial.jmsspring.sender;
 
-/**
- * 
- */
+import java.util.Map;
+
+import org.springframework.jms.core.JmsTemplate;
 
 /**
  * @author Jayram
  *
  */
-import java.util.Map;
-
-import org.springframework.jms.core.JmsTemplate;
-
 public class SpringMessageSender {
 
 	private final JmsTemplate jmsTemplate;

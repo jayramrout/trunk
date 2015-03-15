@@ -5,7 +5,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jms="http://www.springframework.org/schema/jms"
        xmlns:amq="http://activemq.apache.org/schema/core"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context 
@@ -14,8 +13,7 @@
                            http://www.springframework.org/schema/jms/spring-jms.xsd
                            http://activemq.apache.org/schema/core 
                            http://activemq.apache.org/schema/core/activemq-core.xsd
-                           http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+                           ">
 
 <!-- Activemq connection factory -->
     <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
@@ -27,15 +25,13 @@
     <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
         <constructor-arg ref="amqConnectionFactory" />
     </bean> 
- 
     <!-- Message Receiver Definition -->
-    <bean id="messageReceiver" class="com.tutorial.jms.receiver.SpringMessageReceiver">
+    <bean id="messageReceiver" class="jrout.tutorial.jmsspring.receiver.SpringMessageReceiver">
     </bean>
     
  	<!-- <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
         <constructor-arg index="0" value="StudentTopic"/>
     </bean> -->
-    
     <bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory" />
         <!-- For Queue only name is OK to give-->

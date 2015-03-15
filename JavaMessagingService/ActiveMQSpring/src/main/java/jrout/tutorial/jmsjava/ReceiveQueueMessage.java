@@ -1,4 +1,4 @@
-package com.tutorial.jmsjava;
+package jrout.tutorial.jmsjava;
 
 /**
  * 

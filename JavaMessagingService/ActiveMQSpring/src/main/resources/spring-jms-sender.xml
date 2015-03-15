@@ -5,7 +5,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jms="http://www.springframework.org/schema/jms"
        xmlns:amq="http://activemq.apache.org/schema/core"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context 
@@ -13,9 +12,7 @@
                            http://www.springframework.org/schema/jms 
                            http://www.springframework.org/schema/jms/spring-jms.xsd
                            http://activemq.apache.org/schema/core 
-                           http://activemq.apache.org/schema/core/activemq-core.xsd
-                           http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+                           http://activemq.apache.org/schema/core/activemq-core.xsd">
 
     <!-- Activemq connection factory -->
     <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
@@ -28,8 +25,8 @@
     </bean>
  
     <!--  Default Destination Queue Definition-->
-    <bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg index="0" value="MyActiveMQQueue"/>
+    <bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="StudentTopic"/>
     </bean>
  
     <!-- JmsTemplate Definition -->
@@ -39,7 +36,7 @@
     </bean>
  
     <!-- Message Sender Definition -->
-    <bean id="messageSender" class="com.tutorial.jms.sender.SpringMessageSender">
+    <bean id="messageSender" class="jrout.tutorial.jmsspring.sender.SpringMessageSender">
         <constructor-arg index="0" ref="jmsTemplate" />
     </bean>
  
