@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 
+group = 'jrout.tutorial'
 sourceCompatibility = 1.8
 version = '1.0-SNAPSHOT'
 
@@ -12,6 +14,7 @@ jar {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven {
     	url "https://code.lds.org/nexus/content/groups/main-repo"
