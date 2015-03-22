@@ -4,18 +4,12 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-
-	<class name="com.tutorial.hibernate.algorithms.identity_mysql_1.StudentBean"
+	<class name="com.tutorial.hibernate.algorithms.domain.StudentBean"
 		table="student">
-
 		<id name="sid">
 			<generator class="identity" />
 		</id>
-
 		<property name="sname" column="sname" />
-
 		<property name="tot_m" />
-
 	</class>
-
 </hibernate-mapping>

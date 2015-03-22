@@ -1,7 +1,6 @@
-package com.tutorial.hibernate.algorithms.sequence_oracle_2;
+package com.tutorial.hibernate.algorithms.domain;
 
-public class StudentBean
-{
+public class StudentBean {
 	int sid;
 	String sname;
 	float tot_m;
@@ -13,6 +12,8 @@ public class StudentBean
 	public int getSid() {
 		return sid;
 	}
+
+
 	public void setSname(String sname) {
 		this.sname = sname;
 	}

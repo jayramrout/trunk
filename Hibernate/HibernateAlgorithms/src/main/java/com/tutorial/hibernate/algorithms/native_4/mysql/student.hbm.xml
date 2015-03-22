@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
-	<class name="com.tutorial.hibernate.algorithms.native_4.mysql.StudentBean" table="student">
+	<class name="com.tutorial.hibernate.algorithms.domain.StudentBean"
+		table="student">
 		<id name="sid">
-			<generator class = "native"/>
+			<generator class="native" />
 		</id>
-		<property name="sname"/>
-		<property name="tot_m"/>
+		<property generated="never" lazy="false" name="sname" />
+		<property generated="never" lazy="false" name="tot_m" />
 	</class>
 </hibernate-mapping>

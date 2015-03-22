@@ -1,16 +1,12 @@
-package com.tutorial.hibernate.algorithms.uuid_5.oracle;
+package com.tutorial.hibernate.algorithms.domain;
 
 public class Bank
 {
-	
 	String acno, name;
-	
-
 	public void setAcno(String acno)
 	{
 		this.acno = acno;
 	}
-
 	public String getAcno()
 	{
 		return acno;

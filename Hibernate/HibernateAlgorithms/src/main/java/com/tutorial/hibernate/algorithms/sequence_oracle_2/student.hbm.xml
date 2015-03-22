@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 
-	<class name="com.tutorial.hibernate.algorithms.sequence_oracle_2.StudentBean" table="student">
+	<class name="com.tutorial.hibernate.algorithms.domain.StudentBean" table="student">
 		<id name="sid">
 			<generator class = "sequence">
 				<param name = "sequence">STUDENT_SEQUENCE</param>
