@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.tutorial.hibernate.cache.domain.StudentBean;
+
 class StudentClient {
 	public static void main(String[] args) throws Exception {
 		Configuration cfg = new Configuration();

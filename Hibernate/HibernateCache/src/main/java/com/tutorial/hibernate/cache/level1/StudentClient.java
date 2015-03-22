@@ -2,10 +2,11 @@ package com.tutorial.hibernate.cache.level1;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.StatelessSession;
 import org.hibernate.cfg.Configuration;
 
-class StudentClient 
+import com.tutorial.hibernate.cache.domain.StudentBean;
+
+public class StudentClient 
 {
 	public static void main(String[] args) throws Exception {
 		Configuration cfg = new Configuration();

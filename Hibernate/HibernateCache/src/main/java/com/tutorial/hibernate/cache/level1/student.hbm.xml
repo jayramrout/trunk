@@ -4,7 +4,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.tutorial.hibernate.cache.level1.StudentBean"
+	<class name="com.tutorial.hibernate.cache.domain.StudentBean"
 		table="student">
 		<id name="sid" column="sid" />
 		<property name="sname" column="sname" />

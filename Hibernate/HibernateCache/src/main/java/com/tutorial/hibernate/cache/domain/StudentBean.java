@@ -1,6 +1,6 @@
-package com.tutorial.hibernate.cache.level2.os_cache;
+package com.tutorial.hibernate.cache.domain;
 
-public class StudentBean {
+public class StudentBean implements java.io.Serializable {
 	int sid;
 	String sname;
 	float tot_m;
@@ -12,6 +12,7 @@ public class StudentBean {
 	public int getSid() {
 		return sid;
 	}
+
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
@@ -27,4 +28,5 @@ public class StudentBean {
 	public float getTot_m() {
 		return tot_m;
 	}
+
 }
