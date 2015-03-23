@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping  package="jayramrout.tutorial.hibernate">
-    <class name="ch01.Guestbook" table="guestbook" catalog="guestbook">
+<hibernate-mapping  package="jrout.tutorial.hibernate">
+    <class name="ch01.Guestbook" table="guestbook" catalog="jaydb">
         <id name="visitorNo" type="java.lang.Integer">
             <column name="VisitorNo" />
             <generator class="identity" />

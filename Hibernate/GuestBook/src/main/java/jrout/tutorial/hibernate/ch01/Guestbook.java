@@ -1,4 +1,4 @@
-package jayramrout.tutorial.hibernate.ch01;
+package jrout.tutorial.hibernate.ch01;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="guestbook",catalog="guestbook")
+@Table(name="guestbook",catalog="jaydb")
 public class Guestbook implements java.io.Serializable {
     private Integer visitorNo;
     private String visitorName;

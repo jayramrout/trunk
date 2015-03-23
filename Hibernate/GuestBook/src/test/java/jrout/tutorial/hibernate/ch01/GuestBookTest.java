@@ -1,9 +1,12 @@
-package jayramrout.tutorial.hibernate.ch01;
+package jrout.tutorial.hibernate.ch01;
 
 import java.util.Iterator;
 import java.util.List;
 
+import jrout.tutorial.hibernate.ch01.Guestbook;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +18,7 @@ public class GuestBookTest {
 	private static final Logger log = Logger.getLogger(GuestBookTest.class);
 	
     SessionFactory sessionFactory;
-    org.hibernate.Session hibSession;
+    Session hibSession;
     List<Guestbook> guestbook;
     Transaction tx = null;
 	
@@ -26,6 +29,8 @@ public class GuestBookTest {
 	    hibSession = sessionFactory.openSession();
 	    log.info("GuestBookTest.setUp() DONE");
 	}
+	@Test public void test(){}
+	
 	@Test
 	public void testInsertGuestBook(){
         tx = hibSession.beginTransaction();
@@ -51,7 +56,7 @@ public class GuestBookTest {
             log.info(" Name="+objGb.getVisitorName());
             log.info(" Message="+objGb.getMessage());
             log.info(" MessageDate="+objGb.getMessageDate()+"\n");
-        }    
+        }
 	}
 	@After
 	public void close(){

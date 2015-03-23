@@ -6,4 +6,4 @@ CREATE TABLE GuestBook(
 VisitorNo Int PRIMARY KEY AUTO_INCREMENT,
 VisitorName varchar(50),
 Message varchar(100),
-MessageDate varchar(40));
+MessageDate varchar(40)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

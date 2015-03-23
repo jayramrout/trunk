@@ -4,7 +4,7 @@
 		org.hibernate.Session, 
 		org.hibernate.Transaction, 
 		java.util.List, 
-		java.util.Iterator,jayramrout.tutorial.hibernate.ch01.Guestbook" %>
+		java.util.Iterator,jrout.tutorial.hibernate.ch01.Guestbook" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%!
