@@ -22,8 +22,10 @@ repositories {
     	url "https://code.lds.org/nexus/content/groups/main-repo"
     }
 }
+ext {
+	hibernateVersion = '4.3.8.Final'
+}
 
-ext.hibernateVersion = '4.3.8.Final'
 
 dependencies {
 	compile 'javassist:javassist:3.+'
@@ -32,8 +34,9 @@ dependencies {
 	compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.2'
 	testCompile group: 'junit', name: 'junit', version: '4.+'
 	
-	compile 'org.hibernate:hibernate-core:4.3.8.Final'
-	compile 'org.hibernate:hibernate-ehcache:4.3.8.Final'
+	compile group:'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+	compile group:'org.hibernate', name: 'hibernate-ehcache', version: hibernateVersion
+	
 	compile 'commons-collections:commons-collections:3.2.1'
 	compile 'org.hibernate:hibernate-oscache:3.6.10.Final'
 }
