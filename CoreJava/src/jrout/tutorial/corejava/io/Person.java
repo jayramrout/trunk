@@ -9,12 +9,20 @@ import java.io.Serializable;
  */
 public class Person  implements Serializable {
 	
-	private static final long serialVersionUID = 1395426454629109273L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+//	private static final long serialVersionUID = -4001883821491656368L;
 	private String name;
 	private String place;
-	private transient String profession;
-	private transient int ssn;
+	private String profession;
+	private transient int ssn; 
+	
+	private String role;
 	
 	public Person(){}
 	public Person(String n, String pr, String place) {

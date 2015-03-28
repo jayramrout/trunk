@@ -1,9 +1,9 @@
 package jrout.tutorial.corejava.io;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
  * Java byte streams are used to perform input and output of 8-bit bytes. Though
@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author Jayram
  *
  */
-public class CopyFileByteStreamOne {
+public class ByteStreamExample {
 
 	public static void main(String args[]) throws Exception {
 
@@ -27,15 +27,16 @@ public class CopyFileByteStreamOne {
 
 		FileInputStream in = null;
 		FileOutputStream out = null;
-
+		BufferedInputStream binStream = null;
 		try {
 			File inputFile = new File(
-					"C:/Users/Jayram/git/April-2014-Batch/CoreJava/src/com/h2kinfosys/java/io/Person.java");
+					"C:\\Users\\Jayram\\git\\trunk\\CoreJava\\src\\jrout\\tutorial\\corejava\\io\\Person.java");
 			
 			in = new FileInputStream(inputFile);
+			binStream = new BufferedInputStream(in);
 			
 			out = new FileOutputStream(
-					"C:\\Users\\Jayram\\git\\April-2014-Batch\\CoreJava\\src\\com\\h2kinfosys\\java\\io\\PersonOutput.txt");
+					"C:/Users/Jayram/git/trunk/CoreJava/src/jrout/tutorial/corejava/io/PersonTemp2.txt");
 
 			int c;
 			while ((c = in.read()) != -1) {

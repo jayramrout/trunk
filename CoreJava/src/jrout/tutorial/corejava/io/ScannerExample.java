@@ -9,8 +9,8 @@ import javax.swing.JFileChooser;
 public class ScannerExample {
 
 	public static void main(String[] args) throws IOException {
-		readFileUsingScanner();
-//		jFileChooser();
+//		readFileUsingScanner();
+		jFileChooser();
 	}
 	
 	public static void readFileUsingScanner() throws IOException {
