@@ -41,7 +41,7 @@ public class ByteStreamExample {
 //				System.out.print(((char)c));
 				fileOutputStream.write(c);
 			}
-			System.out.println("Written Succesfully");
+			System.out.println("Written Succesfully...");
 		} finally {
 			if (fileInputStream != null) {
 				fileInputStream.close();
