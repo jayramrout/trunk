@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 <!--  
-	only <<aop:config>> has to be commented if you want to use aspectj annotation and enable aop:aspectj 
+	only <<aop:config>> has to be commented if you want - to use aspectj annotation and enable aop:aspectj
 -->
 	<aop:aspectj-autoproxy />
 
