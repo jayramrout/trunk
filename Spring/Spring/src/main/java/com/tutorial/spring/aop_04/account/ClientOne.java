@@ -14,7 +14,7 @@ public class ClientOne {
 	 */
 	public static void main(String[] args) {
 		Account account = new Account();
-		account.withdraw(50,"client");
+		account.withdraw(50,"MYClient");
 	}
 
 }

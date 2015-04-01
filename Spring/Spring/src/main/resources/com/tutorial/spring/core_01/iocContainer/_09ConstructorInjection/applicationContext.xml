@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id = "be" class = "com.tutorial.spring.core_01.iocContainer._09ConstructorInjection.Bean">
+		<!-- sequence -->
+		
+		<!-- <constructor-arg value="1"/>
+		<constructor-arg value="1.1"/>
+		<constructor-arg value="Gmg. It is with sequence"/> -->
+		
+	 	<!-- help of datatype -->
+ 		<!-- <constructor-arg type = "float" value="1.1"/>
+		<constructor-arg type = "java.lang.String" value="Gmg. It is with DataTypes"/>
+		<constructor-arg type = "int" value="1"/> -->
+
+ 	 	<!-- type -->
+
+		<!-- index - starts with 0 [zero] -->
+		<!-- <constructor-arg index = "1">
+			<value>1.1</value>
+		</constructor-arg>
+		<constructor-arg index = "2">
+			<value>Gmg. It is with index :)</value>
+		</constructor-arg>
+		<constructor-arg index = "0">
+			<value>1</value>
+		</constructor-arg> -->
+ 
+<!-- combinations -->
+
+		 <constructor-arg index = "0" type = "int">
+			<value>1</value>
+		</constructor-arg>
+
+		<constructor-arg index = "1" type = "float">
+			<value>1.1f</value>
+		</constructor-arg>
+		
+		<constructor-arg index = "2"  type = "java.lang.String">
+			<value>Gmg. It is with combination of all 3</value>
+		</constructor-arg> 
+	</bean>
+</beans> 

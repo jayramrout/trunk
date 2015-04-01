@@ -18,7 +18,8 @@ public class AnnotationClient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring-AOP-Annotation-Customer.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"com/tutorial/spring/aop_04/_06Annotation/Spring-AOP-Annotation-Customer.xml");
 		Customer impl = (Customer)ctx.getBean("customerBo");
 		impl.addCustomer();
 	}
