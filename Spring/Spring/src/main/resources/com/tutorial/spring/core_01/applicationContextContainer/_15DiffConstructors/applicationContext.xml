@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id = "one" class = "com.tutorial.spring.core_01.applicationContextContainer._15DiffConstructors.Bean">
+		<constructor-arg>
+			<value>Sai</value>
+		</constructor-arg>
+	</bean>
+	<bean id = "two" class = "com.tutorial.spring.core_01.applicationContextContainer._15DiffConstructors.Bean">
+		<constructor-arg>
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>Mohan</value>
+		</constructor-arg>
+	</bean>
+</beans>

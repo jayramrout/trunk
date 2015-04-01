@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN"
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="adv" class="com.tutorial.spring.aop_04._01aroundAdvice.AroundAdvice" />
+
+	<bean id="advr"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref  local="adv" />
+		</property>
+		<property name="pattern">
+			<value>.*</value>
+		</property>
+	</bean>
+
+	<bean id="targetobj" class="com.tutorial.spring.aop_04._01aroundAdvice.BusinessLogic" />
+	
+	<bean id="proxyobj" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.tutorial.spring.aop_04._01aroundAdvice.IBusinessLogic</value>
+		</property>
+		<property name="target">
+			<ref local="targetobj" />
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>advr</value>
+			</list>
+		</property>
+	</bean>
+</beans>

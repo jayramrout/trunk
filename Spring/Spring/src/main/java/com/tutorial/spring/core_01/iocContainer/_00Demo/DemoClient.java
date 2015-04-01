@@ -23,12 +23,12 @@ public class DemoClient {
 		 * 
 		 * System.out.println(comp.logoName());
 		 */
-		/*Company comp0 = (Company) factory.getBean("company");
+		Company comp0 = (Company) factory.getBean("company");
 		Company comp1 = (Company) factory.getBean("company");
 		Company comp2 = (Company) factory.getBean("company");
 
 		System.out.println(comp0.hashCode());
 		System.out.println(comp1.hashCode());
-		System.out.println(comp2.hashCode());*/
+		System.out.println(comp2.hashCode());
 	}
 }

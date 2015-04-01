@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- Explicit wiring -->
+
+	<!-- <bean id = "tb" class = "TestBean"> <property name="msg"> <value>Gmg. 
+		friends... Have a joyful day. :)</value> </property> </bean> -->
+	<bean id="t3"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._3AutowireConstructor.TestBean">
+		<property name="msg">
+			<value>Learn well. :)</value>
+		</property>
+	</bean>
+
+	<bean id="db"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._3AutowireConstructor.DemoBean"
+		autowire="constructor">
+		<!-- <constructor-arg> <ref bean = "t3"/> </constructor-arg> -->
+	</bean>
+</beans>

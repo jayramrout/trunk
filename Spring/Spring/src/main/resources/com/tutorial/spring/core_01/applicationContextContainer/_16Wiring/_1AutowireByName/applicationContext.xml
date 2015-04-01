@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="tb"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._1AutowireByName.TestBean"> <!-- Explicit wiring -->
+		<property name="msg">
+			<value>Very GM Auto Wire By Name</value>
+		</property>
+	</bean>
+	<!-- Note: When we go for explicit wiring through setter injection then 
+		autowiring values will be overridden and explicit wiring values will be displayed 
+		When we go for explicit wiring through constructor injection then constructor 
+		injection values will be overridden by autowiring values -->
+	<!-- Explicit wiring -->
+	<!-- <bean id="tb1"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._1AutowireByName.TestBean">
+		<property name="msg">
+			<value>Good noon friends By Constructor</value>
+		</property>
+	</bean> -->
+	
+	<bean id="db"
+		class="com.tutorial.spring.core_01.applicationContextContainer._16Wiring._1AutowireByName.DemoBean"
+		autowire="byName">
+		<!-- <property name="tb"> <ref bean = "tb1"/> </property> -->
+		<!-- <constructor-arg>
+			<ref bean="tb1" />
+		</constructor-arg> -->
+	</bean>
+</beans>

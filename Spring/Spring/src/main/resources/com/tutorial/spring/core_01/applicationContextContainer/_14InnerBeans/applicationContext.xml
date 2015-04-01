@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	 <bean id = "two" class = "com.tutorial.spring.core_01.applicationContextContainer._14InnerBeans.Second">
+	 	<property name="f">
+	 		<bean class = "com.tutorial.spring.core_01.applicationContextContainer._14InnerBeans.First">
+	 			<property name="a" value="10"/>
+	 			<property name="b" value="20"/>
+	 		</bean>	<!-- inner bean -->
+	 	</property>
+	 </bean>  <!-- outer bean -->
+</beans>

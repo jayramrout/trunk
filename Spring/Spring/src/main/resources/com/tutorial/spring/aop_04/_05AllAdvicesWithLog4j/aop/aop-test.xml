@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN" 
+     "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- Advices -->
+	<bean id="beforeCall"
+		class="com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.LogBeforeCallAdvice" />
+	<bean id="afterCall"
+		class="com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.LogAfterReturningAdvice" />
+	<bean id="throwCall"
+		class="com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.LogAfterThrowsAdvice" />
+	<bean id="aroundCall"
+		class="com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.LogAroundAdvice" />
+		
+	<!-- Implementation Class -->
+	<bean id="adderImpl" class="com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.AdderImpl" />
+	<!-- Proxy Implementation Class -->
+	
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.tutorial.spring.aop_04._05AllAdvicesWithLog4j.aop.Adder</value>
+		</property>
+		
+		<property name="interceptorNames">
+			<list>
+				<value>beforeCall</value>
+				<value>afterCall</value>
+				<value>throwCall</value>
+				<value>aroundCall</value>
+			</list>
+		</property>
+
+		<property name="target">
+			<ref bean="adderImpl" />
+		</property>
+	</bean>
+</beans>
