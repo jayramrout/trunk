@@ -6,6 +6,8 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.swing.*;
+
 
 public class Client {
 
@@ -14,8 +16,8 @@ public class Client {
 	 */
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringHibernate.xml");
+
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/tutorial/spring/orm_03/_03SpringHibernateApproach2/SpringHibernate.xml");
 		
 		BeanFactory factory = (BeanFactory)ctx;
 		

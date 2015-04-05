@@ -8,34 +8,36 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import javax.swing.*;
+
 public class DemoClient {
-	private HibernateTemplate ht = null;
+    private HibernateTemplate ht = null;
 
-	public void setHt(HibernateTemplate ht) {
-		System.out.println("setter of spring");
-		this.ht = ht;
-	}
+    public void setHt(HibernateTemplate ht) {
+        System.out.println("setter of spring");
+        this.ht = ht;
+    }
 
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
+    public static void main(String[] args) throws Exception {
+        // TODO Auto-generated method stub
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"spring.cfg.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+                "/com/tutorial/spring/orm_03/_05SeparateConfigFiles_spring_hibernate/spring.cfg.xml");
 
-		BeanFactory factory = (BeanFactory) ctx;
+        BeanFactory factory = (BeanFactory) ctx;
 
-		DemoClient d = (DemoClient) factory.getBean("d1");
+        DemoClient d = (DemoClient) factory.getBean("d1");
 
-		List l = d.ht.findByNamedQuery("selectUser", new Object[] { "%a%" });
+        List l = d.ht.findByNamedQuery("selectUser", new Object[]{"%a%"});
 
-		Iterator it = l.iterator();
-		while (it.hasNext()) {
-			User ob = (User) it.next();
-			System.out.print(ob.getUid());
-			System.out.println(" " + ob.getUname() + " " + ob.getRole());
-			System.out.println("--------------");
-		}
+        Iterator it = l.iterator();
+        while (it.hasNext()) {
+            User ob = (User) it.next();
+            System.out.print(ob.getUid());
+            System.out.println(" " + ob.getUname() + " " + ob.getRole());
+            System.out.println("--------------");
+        }
 
-	}
+    }
 
 }

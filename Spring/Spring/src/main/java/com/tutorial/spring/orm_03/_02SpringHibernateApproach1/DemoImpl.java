@@ -13,7 +13,6 @@ public class DemoImpl implements DemoInter{
 
 	private SessionFactory factory = null;
 	
-	
 	public void setFactory(SessionFactory factory) {
 		System.out.println("Setter of spring class");
 		this.factory = factory;

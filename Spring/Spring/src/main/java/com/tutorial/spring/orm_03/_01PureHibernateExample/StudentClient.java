@@ -19,7 +19,7 @@ class StudentClient {
 		// creation of StudentBean class object
 		StudentBean st1 = new StudentBean();
 
-		st1.setSid(5);
+		st1.setSid(6);
 		st1.setSname("Jayram Rout");
 		// st1.setTot_m(20.2f);
 

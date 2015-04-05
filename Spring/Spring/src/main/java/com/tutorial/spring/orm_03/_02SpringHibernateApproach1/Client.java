@@ -19,7 +19,7 @@ public class Client {
 
 		BeanFactory factory = (BeanFactory) ctx;
 
-		DemoInter d = (DemoInter) factory.getBean("d1");
+		DemoInter d = (DemoInter) factory.getBean("demoImpl");
 
 		Iterator i1 = d.getData();
 

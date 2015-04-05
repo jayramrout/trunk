@@ -9,7 +9,7 @@ import com.tutorial.spring.annotation.vehicle.twowheel.Bike;
  * @author Jayram
  *
  */
-@Component
+
 public class Vehicle {
 	private Car car;
 	private Bike bike;
