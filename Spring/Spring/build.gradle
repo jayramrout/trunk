@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group = 'jrout.tutorial'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = '1.0-SNAPSHOT'
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Gradle Quickstart',
+            'Implementation-Version': version
+  }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url "https://code.lds.org/nexus/content/groups/main-repo"
+  }
+}
+ext {
+  hibernateVersion = '4.3.8.Final'
+  springVersion = "4.1.4.RELEASE"
+  aspectjVersion = "1.7.4"
+}
+
+dependencies {
+  compile "org.springframework:spring-context:$springVersion"
+  compile "org.springframework:spring-jdbc:$springVersion"
+  compile "org.springframework:spring-orm:$springVersion"
+  compile "org.aspectj:aspectjrt:$aspectjVersion"
+  compile "org.aspectj:aspectjweaver:$aspectjVersion"
+  compile "junit:junit:4.11"
+  compile "javax.inject:javax.inject:1"
+  compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.2'
+  compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+
+  compile "tomcat:naming-factory-dbcp:5.5.23"
+  compile "c3p0:c3p0:0.9.1"
+
+  compile 'org.slf4j:slf4j-log4j12:1.7.10'
+  compile 'commons-logging:commons-logging:1.2'
+  testCompile group: 'junit', name: 'junit', version: '4.+'
+}
