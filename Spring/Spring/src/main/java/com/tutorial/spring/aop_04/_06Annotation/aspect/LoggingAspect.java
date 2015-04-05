@@ -1,63 +1,60 @@
 package com.tutorial.spring.aop_04._06Annotation.aspect;
 
-import java.util.Arrays;
-
+import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 
-//@Aspect
+import java.util.Arrays;
+
+@Aspect
 public class LoggingAspect {
+	private static final Logger LOGGER = Logger.getLogger(LoggingAspect.class);
 
-	//@Before("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomer(..))")
+	@Before("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomer(..))")
 	public void logBefore(JoinPoint joinPoint) {
-		System.out.println("logBefore() is running!");
-		System.out.println("hijacked : " + joinPoint.getSignature().getName());
-		System.out.println("****** ");
+		LOGGER.info("logBefore() is running!");
+		LOGGER.info("hijacked : " + joinPoint.getSignature().getName());
+		LOGGER.info("****** ");
 	}
 
-	//@After("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomer(..))")
+	@After("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomer(..))")
 	public void logAfter(JoinPoint joinPoint) {
-		System.out.println("logAfter() is running!");
-		System.out.println("hijacked : " + joinPoint.getSignature().getName());
-		System.out.println("******");
+		LOGGER.info("logAfter() is running!");
+		LOGGER.info("hijacked : " + joinPoint.getSignature().getName());
+		LOGGER.info("******");
 	}
 
-	//@AfterReturning( pointcut = "execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerReturnValue(..))",
-	//		returning= "result")
+	@AfterReturning( pointcut = "execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerReturnValue(..))",
+			returning= "result")
 	public void logAfterReturning(JoinPoint joinPoint, Object result) {
-		System.out.println("logAfterReturning() is running!");
-		System.out.println("hijacked : " + joinPoint.getSignature().getName());
-		System.out.println("Method returned value is : " + result);
-		System.out.println("******");
+		LOGGER.info("logAfterReturning() is running!");
+		LOGGER.info("hijacked : " + joinPoint.getSignature().getName());
+		LOGGER.info("Method returned value is : " + result);
+		LOGGER.info("******");
 	}
 	
-	//@AfterThrowing(
-	//		pointcut = "execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerThrowException(..))",
-	//		throwing= "error")
+	@AfterThrowing(
+			pointcut = "execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerThrowException(..))",
+			throwing= "error")
 	public void logAfterThrowing(JoinPoint joinPoint, Throwable error) {
-		System.out.println("logAfterThrowing() is running!");
-		System.out.println("hijacked : " + joinPoint.getSignature().getName());
-		System.out.println("Exception : " + error);
-		System.out.println("******");
+		LOGGER.info("logAfterThrowing() is running!");
+		LOGGER.info("hijacked : " + joinPoint.getSignature().getName());
+		LOGGER.info("Exception : " + error);
+		LOGGER.info("******");
 	}
 	
-	//@Around("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerAround(..))")
+	@Around("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomerAround(..))")
 	public void logAround(ProceedingJoinPoint joinPoint) throws Throwable {
-		System.out.println("logAround() is running!");
-		System.out.println("hijacked method : " + joinPoint.getSignature().getName());
-		System.out.println("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
+		LOGGER.info("logAround() is running!");
+		LOGGER.info("hijacked method : " + joinPoint.getSignature().getName());
+		LOGGER.info("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
 
-		System.out.println("Around before is running!");
+		LOGGER.info("Around before is running!");
 		joinPoint.proceed();
-		System.out.println("Around after is running!");
+		LOGGER.info("Around after is running!");
 
-		System.out.println("******");
+		LOGGER.info("******");
 	}
 
 }

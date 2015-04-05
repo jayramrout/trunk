@@ -5,7 +5,7 @@ import org.aopalliance.intercept.*;
 public class LogAroundAdvice implements MethodInterceptor{
 
     public Object invoke(MethodInvocation i1) throws Throwable {
-
+        System.out.println("LogAroundAdvice.around()");
         Object arguments[] = i1.getArguments();
 
         int number1 = ((Integer)arguments[0]).intValue();
