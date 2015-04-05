@@ -9,7 +9,7 @@ public class SelectClient {
 	public static void main(String args[]) throws Exception {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"com/tutorial/spring/dao_02/_02JdbcTemplateDaoQueries/applicationContext.xml");
-		SelectImple select = (SelectImple) ctx.getBean("sel");
+		SelectInter select = (SelectInter) ctx.getBean("db");
 		/*System.out.println("Employee count with Clerk disgnation is: "
 				+ select.getEmpCount("AD_PRES"));
 		*/

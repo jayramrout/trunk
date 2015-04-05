@@ -20,52 +20,54 @@ import org.springframework.jdbc.object.StoredProcedure;
 import org.springframework.jdbc.datasource.*;
 
 public class SimpleJdbcCallTest {
-	public static void main(String args[]) {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("HR");
-		dataSource.setPassword("HR");			
-		Employee emp =(Employee) 
-				getEmployeeDetailsWithStoredProcedure(dataSource,"Lex");
-		System.out.println("Allen Details : " + emp);
-	}
+    public static void main(String args[]) {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
+        dataSource.setUsername("HR");
+        dataSource.setPassword("HR");
 
-	private static Object getEmployeeDetailsWithStoredProcedure
-	(DataSource ds, String ename) {
+        Employee emp = (Employee)
+                getEmployeeDetailsWithStoredProcedure(dataSource, "Neena");
+        System.out.println("Allen Details : " + emp);
+    }
 
-		MyStoredProcedure sp = new MyStoredProcedure(ds);
-		//call procedure
-		Map results = sp.myexecute(ename);
-		//set outparmeter values to emp object
-		Employee emp = new Employee();
-		emp.setName(ename);
-		emp.setNo((Integer)results.get("NO"));
- 		emp.setDesignation((String)results.get("DESG"));
- 		emp.setSalary((Double)results.get("SALARY"));
+    private static Object getEmployeeDetailsWithStoredProcedure
+            (DataSource ds, String ename) {
 
-		return emp;
-	}//method2
-	private static class MyStoredProcedure extends StoredProcedure {
-		public MyStoredProcedure(DataSource ds) {
-			super(ds, "GET_EMP_DATA");
-			this.setFunction(false); //false -> indicates its a stored procedure
+        MyStoredProcedure sp = new MyStoredProcedure(ds);
+        //call procedure
+        Map results = sp.myexecute(ename);
+        //set outparmeter values to emp object
+        Employee emp = new Employee();
+        emp.setName(ename);
+        emp.setNo((Integer) results.get("NO"));
+        emp.setDesignation((String) results.get("DESG"));
+        emp.setSalary((Double) results.get("SALARY"));
 
-			SqlParameter[] params = {
-					new SqlParameter("NAME", Types.VARCHAR),
-					new SqlOutParameter("NO", Types.INTEGER),
- 					new SqlOutParameter("DESG", Types.VARCHAR),
- 					new SqlOutParameter("SALARY", Types.DOUBLE)
-			};
-			this.setParameters(params);
-			compile();
-		}//constructor
-		
-		public Map myexecute(String name) {
-			HashMap map = new HashMap();
-			map.put("NAME",name);
-			return super.execute(map);
-		}
+        return emp;
+    }//method2
 
-	}//inner class
+    private static class MyStoredProcedure extends StoredProcedure {
+        public MyStoredProcedure(DataSource ds) {
+            super(ds, "GET_EMP_DATA");
+            this.setFunction(false); //false -> indicates its a stored procedure
+
+            SqlParameter[] params = {
+                    new SqlParameter("NAME", Types.VARCHAR),
+                    new SqlOutParameter("NO", Types.INTEGER),
+                    new SqlOutParameter("DESG", Types.VARCHAR),
+                    new SqlOutParameter("SALARY", Types.DOUBLE)
+            };
+            this.setParameters(params);
+            compile();
+        }//constructor
+
+        public Map myexecute(String name) {
+            HashMap map = new HashMap();
+            map.put("NAME", name);
+            return super.execute(map);
+        }
+
+    }//inner class
 }//outerclass

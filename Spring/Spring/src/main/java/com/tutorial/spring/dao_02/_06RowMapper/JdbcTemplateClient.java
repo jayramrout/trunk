@@ -35,8 +35,8 @@ public class JdbcTemplateClient {
 		// employeeDAO.insertBatchSQL(sql);
 		// System.out.println("Batch Insert Done!");
 		//
-		// Employee employee1 = employeeDAO.findByEmployeeId(100);
-		// System.out.println("Employee A : " + employee1);
+		 Employee employee1 = employeeDAO.findByEmployeeId(100);
+		 System.out.println("Employee A : " + employee1);
 
 		// Employee employee2 = employeeDAO.findByEmployeeId2(104);
 		// System.out.println("Employee B : " + employee2);
