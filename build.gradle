@@ -1,7 +1,4 @@
 apply plugin: 'java'
-
-// sourceSets.main.java.srcDirs = ["src"]
-
 group = 'jrout.tutorial'
 
 targetCompatibility = 1.8
