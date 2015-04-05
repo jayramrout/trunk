@@ -29,10 +29,8 @@
 			<ref bean = "mySessionFactory"/>
 		</constructor-arg>
 	</bean>
-	
-	
 	<bean id = "d1" class = "com.tutorial.spring.orm_03._04NamedQueries.DemoClient">
-		<property name="ht" ref = "template"/>
+		<property name="ht" ref="template" />
 	</bean>
 
 </beans>

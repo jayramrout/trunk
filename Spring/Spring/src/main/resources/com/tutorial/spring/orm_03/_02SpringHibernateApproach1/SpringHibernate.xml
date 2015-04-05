@@ -22,7 +22,7 @@
 		</property>
 	</bean>
 
-	<bean id="d1"
+	<bean id="demoImpl"
 		class="com.tutorial.spring.orm_03._02SpringHibernateApproach1.DemoImpl">
 		<property name="factory" ref="mySessionFactory" />
 	</bean>
