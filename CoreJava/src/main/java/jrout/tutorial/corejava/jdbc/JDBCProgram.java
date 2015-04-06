@@ -4,289 +4,284 @@ import java.sql.*;
 
 public class JDBCProgram {
 
-	static Connection con = null;
-	static Statement stmt = null;
-	static PreparedStatement pstmt = null;
-	CallableStatement cs = null;
-	ResultSet rs = null;
-	
-	private static String jdbcOdbcBridgeDriver = "sun.jdbc.odbc.JdbcOdbcDriver";
-	private static String jdbcOdbcConnectionURL = "jdbc:odbc:<DSN Name given in JDBC ODBC Bridge Driver>";
-	
-	private static String oracleDriver = "oracle.jdbc.driver.OracleDriver";
-	static String connectionURL = "jdbc:oracle:thin:@localhost:1521/XE";
+    static Connection con = null;
+    static Statement stmt = null;
+    static PreparedStatement pstmt = null;
+    CallableStatement cs = null;
+    ResultSet rs = null;
 
-	/*
-	 * MAIN METHOD
-	 */
-	public static void main(String... arg) throws Exception {
-//		 new JDBCProgram().selectQuery(100);
-//		 new JDBCProgram().preparedStatement(100,"Steven");
-//		 new JDBCProgram().createTable();
-//		 new JDBCProgram().createProcedureShowEmployees();
-//		 new JDBCProgram().callProcedure();
-//		 new JDBCProgram().insertRowInDBAndRollBack(28, "Twenty 8");
-//		 new JDBCProgram().savePoint();
-		 new JDBCProgram().addBatch();
-	}
+    private static String jdbcOdbcBridgeDriver = "sun.jdbc.odbc.JdbcOdbcDriver";
+    private static String jdbcOdbcConnectionURL = "jdbc:odbc:<DSN Name given in JDBC ODBC Bridge Driver>";
 
-	static {
-		try {
-			Class.forName(oracleDriver);// Loading a oracleDriver... Step 1
-			// Driver myDriver = new oracle.jdbc.driver.OracleDriver();
-			// DriverManager.registerDriver( myDriver );
+    private static String oracleDriver = "oracle.jdbc.driver.OracleDriver";
+    static String connectionURL = "jdbc:oracle:thin:@localhost:1521/XE";
 
-			con = DriverManager.getConnection(connectionURL, "HR", "HR"); // Step
-		} catch (ClassNotFoundException exp) {
-			exp.printStackTrace();
-		}catch(SQLException exp) {
-			exp.printStackTrace();
-		}
-	}
+    /*
+     * MAIN METHOD
+     */
+    public static void main(String... arg) throws Exception {
+        //		 new JDBCProgram().selectQuery(100);
+        //		 new JDBCProgram().preparedStatement(100,"Steven");
+        //		 new JDBCProgram().createTable();
+        //		 new JDBCProgram().createProcedureShowEmployees();
+        //		 new JDBCProgram().callProcedure();
+        //		 new JDBCProgram().insertRowInDBAndRollBack(28, "Twenty 8");
+        //		 new JDBCProgram().savePoint();
+        new JDBCProgram().addBatch();
+    }
 
-	/**
-	 * @param empid
-	 *            Statement
-	 */
-	public void selectQuery(int empid) {
-		try {
-			stmt = con.createStatement(); // Step 3
-			rs = stmt.executeQuery("select * from employees where employee_id = "
-					+ empid); // Step 4
-			while (rs.next()) {
-				System.out.println(rs.getString("EMAIL") + " "
-						+ rs.getString("EMPLOYEE_ID") + " "
-						+ rs.getString("first_name") + " "
-						+ rs.getString("last_name"));
-			}
+    static {
+        try {
+            Class.forName(oracleDriver);// Loading a oracleDriver... Step 1
+            // Driver myDriver = new oracle.jdbc.driver.OracleDriver();
+            // DriverManager.registerDriver( myDriver );
 
-		} catch (SQLException exp) {
-			exp.printStackTrace();
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            con = DriverManager.getConnection(connectionURL, "HR", "HR"); // Step
+        } catch (ClassNotFoundException exp) {
+            exp.printStackTrace();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        }
+    }
 
-	/*
-	 * 
-	 */
-	public void preparedStatement(int empid, String name) {
-		try {
-			pstmt = con
-					.prepareStatement("select * from employees where employee_id = ? and first_name = ?");
-			pstmt.setInt(1, empid);
-			pstmt.setString(2, name);
+    /**
+     * @param empid Statement
+     */
+    public void selectQuery(int empid) {
+        try {
+            stmt = con.createStatement(); // Step 3
+            rs = stmt.executeQuery("select * from employees where employee_id = "
+                    + empid); // Step 4
+            while (rs.next()) {
+                System.out.println(rs.getString("EMAIL") + " "
+                        + rs.getString("EMPLOYEE_ID") + " "
+                        + rs.getString("first_name") + " "
+                        + rs.getString("last_name"));
+            }
 
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				System.out.println(rs.getString("first_name") + " "
-						+ rs.getString("last_name") + " " + rs.getString(1));
-			}
-		} catch (SQLException exp) {
-			exp.printStackTrace();
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-	/**
-	 * 
-	 */
-	public void addBatch() {
-		try {
-			con.setAutoCommit(false);
-			Statement stmt = con.createStatement();
+    /*
+     *
+     */
+    public void preparedStatement(int empid, String name) {
+        try {
+            pstmt = con
+                    .prepareStatement("select * from employees where employee_id = ? and first_name = ?");
+            pstmt.setInt(1, empid);
+            pstmt.setString(2, name);
 
-			String SQL = "INSERT INTO H2KTable " + "VALUES (107, 'Rita')";
-			stmt.addBatch(SQL);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString("first_name") + " "
+                        + rs.getString("last_name") + " " + rs.getString(1));
+            }
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-			String SQL2 = "INSERT INTO H2KTable " + "VALUES (105, 'Rita')";
-			stmt.addBatch(SQL2);
+    /**
+     *
+     */
+    public void addBatch() {
+        try {
+            con.setAutoCommit(false);
+            Statement stmt = con.createStatement();
 
-			String SQL3 = "update H2KTable set name ='RAJA' where id = 102";
-			stmt.addBatch(SQL3);
+            String SQL = "INSERT INTO H2KTable " + "VALUES (107, 'Rita')";
+            stmt.addBatch(SQL);
 
-			int[] intArray = stmt.executeBatch();
-			con.commit();
-		} catch (SQLException se) {
-			try {
-				con.rollback();
+            String SQL2 = "INSERT INTO H2KTable " + "VALUES (105, 'Rita')";
+            stmt.addBatch(SQL2);
 
-			} catch (Exception exp) {
-				exp.printStackTrace();
-			}
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            String SQL3 = "update H2KTable set name ='RAJA' where id = 102";
+            stmt.addBatch(SQL3);
 
-	/**
-	 * 
-	 */
-	public void savePoint() {
-		Savepoint savepoint1 = null;
-		Savepoint savepoint2 = null;
+            int[] intArray = stmt.executeBatch();
+            con.commit();
+        } catch (SQLException se) {
+            try {
+                con.rollback();
 
-		try {
-			con.setAutoCommit(false);
-			Statement stmt = con.createStatement(); // set a Savepoint
+            } catch (Exception exp) {
+                exp.printStackTrace();
+            }
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-			savepoint1 = con.setSavepoint("Savepoint1");
-			String SQL = "INSERT INTO H2KTable VALUES (102, 'Rita2')";
+    /**
+     *
+     */
+    public void savePoint() {
+        Savepoint savepoint1 = null;
+        Savepoint savepoint2 = null;
 
-			stmt.executeUpdate(SQL); // Submit a malformed SQL statement that
-										// breaks String SQL =
-										// "INSERTED IN Employees " +
-										// "VALUES (107, 22, 'Sita', 'Tez')";
-										// stmt.executeUpdate(SQL); // If there
-										// is no error, commit the changes.
-										// conn.commit();
+        try {
+            con.setAutoCommit(false);
+            Statement stmt = con.createStatement(); // set a Savepoint
 
-			savepoint2 = con.setSavepoint("Savepoint2");
-			String SQL2 = "INSERT INTO H2KTable " + "VALUES (103, 'Rita3')";
+            savepoint1 = con.setSavepoint("Savepoint1");
+            String SQL = "INSERT INTO H2KTable VALUES (102, 'Rita2')";
 
-			stmt.executeUpdate(SQL2);
+            stmt.executeUpdate(SQL); // Submit a malformed SQL statement that
+            // breaks String SQL =
+            // "INSERTED IN Employees " +
+            // "VALUES (107, 22, 'Sita', 'Tez')";
+            // stmt.executeUpdate(SQL); // If there
+            // is no error, commit the changes.
+            // conn.commit();
 
-			int i = 4 / 0;
-		} catch (Exception se) { // If there is any error.
-			try {
-				con.rollback(savepoint2);
-				// con.rollback();
-			} catch (Exception exp) {
-				exp.printStackTrace();
-			}
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            savepoint2 = con.setSavepoint("Savepoint2");
+            String SQL2 = "INSERT INTO H2KTable " + "VALUES (103, 'Rita3')";
 
-	public void insertRowInDBAndRollBack(int id, String name) {
-		try {
-			con.setAutoCommit(false);
+            stmt.executeUpdate(SQL2);
 
-			pstmt = con.prepareStatement("insert into H2KTable values(?,?)");
+            int i = 4 / 0;
+        } catch (Exception se) { // If there is any error.
+            try {
+                con.rollback(savepoint2);
+                // con.rollback();
+            } catch (Exception exp) {
+                exp.printStackTrace();
+            }
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-			pstmt.setInt(1, id);
-			pstmt.setString(2, name);
+    public void insertRowInDBAndRollBack(int id, String name) {
+        try {
+            con.setAutoCommit(false);
 
-			// pstmt.setInt(1, Integer.parseInt(id+"a"));
-			// pstmt.setString(2, name+"1");
+            pstmt = con.prepareStatement("insert into H2KTable values(?,?)");
 
-			int intValue = pstmt.executeUpdate();
-			System.out.println("JDBCProgram.insertRowInDBAndRollBack()"
-					+ intValue);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, name);
 
-			int i = 4 / 0;
+            // pstmt.setInt(1, Integer.parseInt(id+"a"));
+            // pstmt.setString(2, name+"1");
 
-			con.commit();
-		} catch (Exception exp) {
-			exp.printStackTrace();
-			try {
-				con.rollback();
-			} catch (Exception exp1) {
-				exp1.printStackTrace();
-			}
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            int intValue = pstmt.executeUpdate();
+            System.out.println("JDBCProgram.insertRowInDBAndRollBack()"
+                    + intValue);
 
-	public void insertRowInDB(int id, String name) {
-		try {
-			pstmt = con.prepareStatement("insert into myExcel values(?,?)");
-			pstmt.setInt(1, id);
-			pstmt.setString(2, name);
-			int intValue = 0;
-			intValue = pstmt.executeUpdate();
-		} catch (SQLException exp) {
-			exp.printStackTrace();
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            int i = 4 / 0;
 
-	/**
-	 * 
-	 */
-	public void createTable() {
-		try {
-			stmt = con.createStatement();
-			boolean isExecuted = stmt
-					.execute("create table H2KTable(id number(4) , name varchar2(20))");
-			System.out.println("Table got created..." + isExecuted);
-		} catch (SQLException exp) {
-			exp.printStackTrace();
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            con.commit();
+        } catch (Exception exp) {
+            exp.printStackTrace();
+            try {
+                con.rollback();
+            } catch (Exception exp1) {
+                exp1.printStackTrace();
+            }
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-	/**
-	 * API to close all open connections.
-	 * @param rs
-	 * @param stmt
-	 * @param con
-	 */
-	private void closeConnections(ResultSet rs, Statement stmt, Connection con) {
-		try {
-			if (rs != null) {
-				rs.close();
-			}
-			if (stmt != null) {
-				stmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-		} catch (Exception exp) {
-			exp.printStackTrace();
-		}
-	}
+    public void insertRowInDB(int id, String name) {
+        try {
+            pstmt = con.prepareStatement("insert into myExcel values(?,?)");
+            pstmt.setInt(1, id);
+            pstmt.setString(2, name);
+            int intValue = 0;
+            intValue = pstmt.executeUpdate();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-	/**
-	 * API for invoking procedure
-	 */
-	public void callProcedure() {
-		try {
-			cs = con.prepareCall("{call SHOW_EMPLOYEES(?,?)}");
+    /**
+     *
+     */
+    public void createTable() {
+        try {
+            stmt = con.createStatement();
+            stmt.execute("CREATE TABLE H2KTable(id number(4) , name VARCHAR2(20))");
+            System.out.println("Table got created...");
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
 
-			cs.setInt(1, 200);
-			cs.registerOutParameter(2, Types.VARCHAR);
+    /**
+     * API to close all open connections.
+     */
+    private void closeConnections(ResultSet rs, Statement stmt, Connection con) {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (Exception exp) {
+            exp.printStackTrace();
+        }
+    }
 
-			cs.executeQuery();
+    /**
+     * API for invoking procedure
+     */
+    public void callProcedure() {
+        try {
+            cs = con.prepareCall("{call SHOW_EMPLOYEES(?,?)}");
 
-			String empName = cs.getString(2);
+            cs.setInt(1, 200);
+            cs.registerOutParameter(2, Types.VARCHAR);
 
-			System.out.println("JDBCProgram.callProcedure()" + empName);
-		} catch (Exception exp) {
-			exp.printStackTrace();
-		} finally {
-			closeConnections(rs, stmt, con);
-		}
-	}
+            cs.executeQuery();
 
-	/**
-	 * 
-	 * @throws SQLException
-	 */
-	public void createProcedureShowEmployees() throws SQLException {
-		String queryDrop = "DROP PROCEDURE  SHOW_EMPLOYEES";
-		String createProcedure = "CREATE OR REPLACE PROCEDURE SHOW_EMPLOYEES ( EID_IN IN NUMBER , EMP_NAME OUT VARCHAR2) "
-				+ "AS "
-				+ "BEGIN "
-				+ "SELECT EMP.FIRST_NAME INTO EMP_NAME FROM EMPLOYEES EMP WHERE EMP.EMPLOYEE_ID = EID_IN; "
-				+ "END;";
-		try {
-			stmt = con.createStatement();
-			stmt.executeUpdate(createProcedure);
-//			stmt.execute(queryDrop);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (stmt != null) {
-				stmt.close();
-			}
-		}
-	}
+            String empName = cs.getString(2);
+
+            System.out.println("JDBCProgram.callProcedure()" + empName);
+        } catch (Exception exp) {
+            exp.printStackTrace();
+        } finally {
+            closeConnections(rs, stmt, con);
+        }
+    }
+
+    /**
+     *
+     * @throws SQLException
+     */
+    public void createProcedureShowEmployees() throws SQLException {
+        String queryDrop = "DROP PROCEDURE  SHOW_EMPLOYEES";
+        String createProcedure = "CREATE OR REPLACE PROCEDURE SHOW_EMPLOYEES ( EID_IN IN NUMBER , EMP_NAME OUT VARCHAR2) "
+                + "AS "
+                + "BEGIN "
+                + "SELECT EMP.FIRST_NAME INTO EMP_NAME FROM EMPLOYEES EMP WHERE EMP.EMPLOYEE_ID = EID_IN; "
+                + "END;";
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(createProcedure);
+            //			stmt.execute(queryDrop);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+        }
+    }
 
 }
