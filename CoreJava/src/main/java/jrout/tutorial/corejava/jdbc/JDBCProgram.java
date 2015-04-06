@@ -1,14 +1,6 @@
 package jrout.tutorial.corejava.jdbc;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Types;
+import java.sql.*;
 
 public class JDBCProgram {
 
@@ -28,14 +20,14 @@ public class JDBCProgram {
 	 * MAIN METHOD
 	 */
 	public static void main(String... arg) throws Exception {
-		// new JDBCProgram().selectQuery(200);
-		// new JDBCProgram().preparedStatement(100,"Steven");
-		// new JDBCProgram().createTable();
-		// new JDBCProgram().createProcedureShowEmployees();
-		// new JDBCProgram().callProcedure();
-		// new JDBCProgram().insertRowInDBAndRollBack(27, "Twenty 7");
-		// new JDBCProgram().savePoint();
-		// new JDBCProgram().addBatch();
+//		 new JDBCProgram().selectQuery(100);
+//		 new JDBCProgram().preparedStatement(100,"Steven");
+//		 new JDBCProgram().createTable();
+//		 new JDBCProgram().createProcedureShowEmployees();
+//		 new JDBCProgram().callProcedure();
+//		 new JDBCProgram().insertRowInDBAndRollBack(28, "Twenty 8");
+//		 new JDBCProgram().savePoint();
+		 new JDBCProgram().addBatch();
 	}
 
 	static {
@@ -44,14 +36,10 @@ public class JDBCProgram {
 			// Driver myDriver = new oracle.jdbc.driver.OracleDriver();
 			// DriverManager.registerDriver( myDriver );
 
+			con = DriverManager.getConnection(connectionURL, "HR", "HR"); // Step
 		} catch (ClassNotFoundException exp) {
 			exp.printStackTrace();
-		}
-
-		try {
-			con = DriverManager.getConnection(connectionURL, "HR", "HR"); // Step
-																			// 2
-		} catch (Exception exp) {
+		}catch(SQLException exp) {
 			exp.printStackTrace();
 		}
 	}
@@ -63,9 +51,8 @@ public class JDBCProgram {
 	public void selectQuery(int empid) {
 		try {
 			stmt = con.createStatement(); // Step 3
-			rs = stmt
-					.executeQuery("select * from employees where employee_id = "
-							+ empid); // Step 4
+			rs = stmt.executeQuery("select * from employees where employee_id = "
+					+ empid); // Step 4
 			while (rs.next()) {
 				System.out.println(rs.getString("EMAIL") + " "
 						+ rs.getString("EMPLOYEE_ID") + " "
