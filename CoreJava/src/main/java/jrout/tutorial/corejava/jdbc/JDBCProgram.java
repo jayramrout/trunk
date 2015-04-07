@@ -205,12 +205,15 @@ public class JDBCProgram {
     }
 
     /**
-     *
+     * execute() true if the first result is a ResultSet object; 
+     * false if it is an update count or there are no results
      */
     public void createTable() {
         try {
             stmt = con.createStatement();
-            stmt.execute("CREATE TABLE H2KTable(id number(4) , name VARCHAR2(20))");
+            boolean hasResults = stmt.execute("CREATE TABLE H2KTable(id number(4) , name VARCHAR2(20))");
+            System.out.println("Has Results ..." + hasResults);
+            
             System.out.println("Table got created...");
         } catch (SQLException exp) {
             exp.printStackTrace();
