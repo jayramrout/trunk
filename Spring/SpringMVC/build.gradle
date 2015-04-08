@@ -33,7 +33,7 @@ repositories {
 }
 
 ext {
-	springMVCVersion = '3.2.2.RELEASE'
+	springMVCVersion = '4.1.6.RELEASE'
 }
 
 dependencies {
