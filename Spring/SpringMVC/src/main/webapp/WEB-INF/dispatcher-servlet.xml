@@ -15,7 +15,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/hi.htm">hiController</prop>
-				<prop key="/customer/*.htm">custController</prop>
+				<prop key="/customer/*.htm">multiController</prop>
 				<prop key="/customer.htm">customerController</prop>
 			</props>
 		</property>
@@ -29,7 +29,7 @@
 	</bean>
 
 	<bean name="hiController" class="com.tutorial.controllers.HiController" p:message=" I am from SimpleURLHandler" />
-	<bean name="custController" class="com.tutorial.controllers.CustomerController" />
+	<bean name="multiController" class="com.tutorial.controllers.MultiController" />
 
 	<!-- BeanNameUrlHandlerMapping Below which is default -->
 	<!-- <bean name="/hi.htm" class="com.tutorial.controllers.HiController"
