@@ -12,8 +12,8 @@ apply plugin: 'jetty'
 convention.plugins.jetty.httpPort = 9090
 
 group = 'jrout.tutorial'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 version = '1.0-SNAPSHOT'
 
@@ -33,7 +33,7 @@ repositories {
 }
 
 ext {
-	springMVCVersion = '4.1.6.RELEASE'
+	springMVCVersion = '3.2.2.RELEASE'
 }
 
 dependencies {
