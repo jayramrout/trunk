@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
 // sourceSets.main.java.srcDirs = ["src"]
 
@@ -14,6 +15,7 @@ repositories {
     url "https://code.lds.org/nexus/content/groups/main-repo"
   }
 }
+
 dependencies {
   compile 'mysql:mysql-connector-java:5.1.15'
   compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.2'
