@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloWorldController {
+	
 	@RequestMapping("/helloworld")
 	public ModelAndView helloWord(){
 		String message = "Hello World ,GM Again!!!";

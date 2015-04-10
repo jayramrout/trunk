@@ -28,7 +28,7 @@ public class CustomerController extends SimpleFormController {
 		System.out.println("CustomerController.onSubmit()");
 		Customer customer = (Customer)command;
 		System.out.println(customer);
-		return new ModelAndView("CustomerSuccess","customer",customer);
+		return new ModelAndView(getSuccessView(),"customer",customer);
 	}
 	
 	@Override

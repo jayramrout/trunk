@@ -8,44 +8,26 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!--Active this if you want to use annotation based and comment all the others below it !!!-->
-	<!-- <context:component-scan base-package="com.tutorial.controllers"/> -->
-
+	<context:component-scan base-package="com.tutorial.controllers"/>
+	
 	<!-- SimpleUrlHandlerMapping Below -->
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/hi.htm">hiController</prop>
 				<prop key="/customer/*.htm">multiController</prop>
-				<prop key="/customer.htm">customerController</prop>
 			</props>
 		</property>
 		<property name="order" value="1" />
-	</bean>
-	
-	<!-- Register the Customer.properties -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="com/tutorial/customer/properties/Customer" />
-	</bean>
-
-	<bean name="hiController" class="com.tutorial.controllers.HiController" p:message=" I am from SimpleURLHandler" />
-	<bean name="multiController" class="com.tutorial.controllers.MultiController" />
+	</bean> -->
 
 	<!-- BeanNameUrlHandlerMapping Below which is default -->
-	<!-- <bean name="/hi.htm" class="com.tutorial.controllers.HiController"
-		p:message="I am from BeanNameURL" /> -->
-		
-	<bean name="customerController" class="com.tutorial.customer.controller.CustomerController">
-		<property name="formView" value="CustomerForm" />
-		<property name="successView" value="CustomerSuccess" />
-		<!-- Map a validator -->
-		<property name="validator">
-			<bean class="com.tutorial.customer.validator.CustomerValidator" />
-		</property>
-	</bean>
+	<!-- <bean name="/hi.htm" class="com.tutorial.controllers.HiController" p:message="BeanNameURL" /> -->
 
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" /> -->
+	<!-- <bean class="com.tutorial.controllers.HiController" p:message="ControllerClassNameHandlerMappping" /> -->
+		
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
-
 </beans>

@@ -9,7 +9,6 @@ import com.tutorial.customer.model.Customer;
 public class CustomerValidator implements Validator{
 
 	public boolean supports(Class clazz) {
-		//just validate the Customer instances
 		return Customer.class.isAssignableFrom(clazz);
 
 	}

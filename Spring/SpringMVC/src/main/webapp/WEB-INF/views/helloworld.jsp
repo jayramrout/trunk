@@ -7,6 +7,6 @@
 <title>Hello World</title>
 </head>
 <body>
-     I am in Hello World with message ::  ${newMessage}
+     I am in Hello World with message ::  ${message}
 </body>
 </html>
