@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+
+	<package name="helloworld" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<global-results>
+			<result name="error">/Error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="com.tutorial.struts.exception.LoginException"
+				result="error" />
+		</global-exception-mappings>
+
+		<!--First Example -->
+		<action name="hello" class="com.tutorial.struts.action.HelloWorldAction"
+			method="execute">
+			<result name="success">/HelloWorld.jsp</result>
+			<!-- <result name="error">/ErrorPage.jsp</result> -->
+		</action>
+
+		<!--Second Example -->
+		<action name="login" class="com.tutorial.struts.action.LoginAction">
+			<result name="success">/success.jsp</result>
+			<result name="input">/Login.jsp</result>
+		</action>
+
+		<action name="loginValidation"
+			class="com.tutorial.struts.action.LoginActionValidation">
+			<result name="success">/successValidation.jsp</result>
+			<result name="input">/loginValidation.jsp</result>
+		</action>
+
+		<action name="welcomeLink" method="welcome"
+			class="com.tutorial.struts.action.WelcomeAction">
+			<result name="welcome" type="tiles">welcome</result>
+		</action>
+
+		<action name="getjavadetailsLink" method="getjavadetails"
+			class="com.tutorial.struts.action.JavaAction">
+			<result name="java" type="tiles">javatechnologies</result>
+		</action>
+
+		<action name="getDotNetdetailsLink" method="getDotNetdetails"
+			class="com.tutorial.struts.action.DotNetAction">
+			<result name="dotnet" type="tiles">dotnettechnologies</result>
+		</action>
+
+
+		<action name="ExecuteAndWaitAction"
+			class="com.tutorial.struts.action.ExecuteAndWaitAction">
+			<interceptor-ref name="execAndWait">
+				<param name="delay">5000</param>
+				<param name="delaySleepInterval">100</param>
+			</interceptor-ref>
+			<result name="wait">/jsp/WaitProcess.jsp </result>
+			<result name="success">/jsp/SuccessProcess.jsp </result>
+		</action>
+
+		<action name="autoCompleterAction"
+			class="com.tutorial.struts.action.AutoCompleterAction" method="display">
+			<result name="none">pages/autocompleter.jsp</result>
+		</action>
+
+		<action name="resultAction"
+			class="com.tutorial.struts.action.AutoCompleterAction">
+			<result name="success">pages/result.jsp</result>
+		</action>
+
+		<action name="checkBoxListAction" class="com.tutorial.struts.action.CheckBoxListAction"
+			method="display">
+			<result name="none">pages/checkBoxlist.jsp</result>
+		</action>
+
+		<action name="resultAction" class="com.tutorial.struts.action.CheckBoxListAction">
+			<result name="success">pages/chkboxresult.jsp</result>
+		</action>
+
+		<action name="employee" class="com.tutorial.struts.action.EmployeeAction"
+			method="execute">
+			<result name="success">/employee.jsp</result>
+		</action>
+
+
+		<action name="empinfo" class="com.tutorial.struts.action.Employee" method="execute">
+			<result name="input">/Internationalizations.jsp</result>
+			<result name="success">/success_Internationalizations.jsp</result>
+		</action>
+
+		<action name="locale" class="com.tutorial.struts.action.Locale" method="execute">
+			<result name="success">/Internationalizations.jsp</result>
+		</action>
+	</package>
+</struts>
