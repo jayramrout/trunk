@@ -7,7 +7,7 @@
 	<uri>http://excelonline.net/blogs/jsp/taglib/substr</uri>
 	<tag>
 		<name>substring</name>
-		<tagclass>com.excel.classes.jsp.custom.taglib.SubstrTagHandler</tagclass>
+		<tagclass>com.tutorial.jsp.custom.taglib.SubstrTagHandler</tagclass>
 		<info>Substring function.</info>
 		<attribute>
 			<name>input</name>
