@@ -10,6 +10,6 @@
 		<s:password name="pass" label="PASSWORD" />
 		<s:textfield name="age" label="AGE" />
 		<s:submit value="SUB" />
-	</s:form>
+	</s:form> 
 </body>
 </html>
