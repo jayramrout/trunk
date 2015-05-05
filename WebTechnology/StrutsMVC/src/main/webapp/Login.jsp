@@ -4,7 +4,7 @@
 <head>
 <title>Struts 2 - Login Application</title>
 </head>
-<body bgcolor="FFCCFF">
+<body bgcolor="#E3FF91">
 	<s:form action="login.action" method="post" validate="true">
 		<s:textfield name="userName" label="USER NAME" />
 		<s:password name="pass" label="PASSWORD" />
