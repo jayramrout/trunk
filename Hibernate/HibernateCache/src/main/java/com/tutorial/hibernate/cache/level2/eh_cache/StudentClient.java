@@ -18,33 +18,32 @@ class StudentClient
 		Session ses3 = factory.openSession();
 		Session ses4 = factory.openSession();
 		
-		StudentBean st1, st2;
-
-		st1 = (StudentBean) ses1.get(StudentBean.class, new Integer(100));
-		System.out.println("ONE");
-		Thread.sleep(3000);
-		
-		st2 = (StudentBean) ses2.get(StudentBean.class, new Integer(100));
-		System.out.println("TWO");
-		Thread.sleep(3000);
-		
-		st2 = (StudentBean) ses3.get(StudentBean.class, new Integer(100));
-		System.out.println("THREE");
-		Thread.sleep(3000);
-		
-		st2 = (StudentBean) ses4.get(StudentBean.class, new Integer(100));
-		System.out.println("FOUR");
-		
-		System.out.println("Record Values r: ");
-		ses1.close();	
-		ses2.close();
-		System.out.println(st1.getSid()+" "+st1.getSname()+" "+st1.getTot_m());
-		System.out.println(st2.getSid()+" "+st2.getSname()+" "+st2.getTot_m());
-		/*
-		ses = factory.openSession();
-		st1 = (StudentBean) ses1.get(StudentBean.class, new Integer(105));
-*/
-		factory.close();
-
+		StudentBean studentBean;
+		int studentId = 123;
+		try {
+			studentBean = (StudentBean) ses1.get(StudentBean.class, new Integer(studentId));
+			System.out.println(" 1 ==> "+studentBean.getSid()+" "+studentBean.getSname()+" "+studentBean.getTot_m());
+			Thread.sleep(3000);
+			
+			studentBean = (StudentBean) ses2.get(StudentBean.class, new Integer(studentId));
+			System.out.println(" 2 ==> "+studentBean.getSid()+" "+studentBean.getSname()+" "+studentBean.getTot_m());
+			Thread.sleep(3000);
+			
+			studentBean = (StudentBean) ses3.get(StudentBean.class, new Integer(studentId));
+			System.out.println(" 3 ==> "+studentBean.getSid()+" "+studentBean.getSname()+" "+studentBean.getTot_m());
+			Thread.sleep(3000);
+			
+			studentBean = (StudentBean) ses4.get(StudentBean.class, new Integer(studentId));
+			System.out.println(" 4 ==> "+studentBean.getSid()+" "+studentBean.getSname()+" "+studentBean.getTot_m());
+		} catch (Exception e) {
+			System.err.println("StudentId : "+studentId +" might not be present in database .. \nPlease use correct Primary Key");
+			e.printStackTrace();
+		}finally {
+			ses1.close();	
+			ses2.close();
+			ses3.close();
+			ses4.close();
+			factory.close();	
+		}
 	}
 }
