@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -30,7 +32,7 @@ public class EmployeeClient {
 			throw new ExceptionInInitializerError(ex); 
 		}
 //		criteriaExamples();
-//		projections();
+		projections();
 	}
 	
 	public static void criteriaExamples(){
@@ -61,7 +63,7 @@ public class EmployeeClient {
 //			Criterion name = Restrictions.ilike("firstName","D%");
 //			LogicalExpression orExp = Restrictions.or(salary, name); 
 //			cr.add( orExp );
-////			
+////		
 //			LogicalExpression andExp = Restrictions.and(salary, name); 
 //			cr.add( andExp );
 			// AND OR Conditions Ends
@@ -86,9 +88,11 @@ public class EmployeeClient {
 		}
 	}
 	/**
+	 * How to use aggregate functions
 	 * The Criteria API provides the org.hibernate.criterion.Projections class which can be used to get average, 
 	 * maximum or minimum of the property values. The Projections class is similar to the Restrictions class in 
 	 * that it provides several static factory methods for obtaining Projection instances.
+	 * 
 	 */
 	public static void projections(){
 		Session session = factory.openSession();
@@ -97,11 +101,11 @@ public class EmployeeClient {
 			tx = session.beginTransaction();
 			Criteria cr = session.createCriteria(Employees.class);
 			// To get total row count. 
-//			cr.setProjection(Projections.rowCount()); 
+			cr.setProjection(Projections.rowCount()); 
 			// To get average of a property. 
 //			cr.setProjection(Projections.avg("salary")); 
 //			// To get distinct count of a property. 
-			cr.setProjection(Projections.countDistinct("firstName")); 
+//			cr.setProjection(Projections.countDistinct("firstName")); 
 //			// To get maximum of a property. 
 //			cr.setProjection(Projections.max("salary")); 
 //			// To get minimum of a property. 
