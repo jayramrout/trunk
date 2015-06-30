@@ -1,11 +1,13 @@
-package com.tutorial.controllers;
+package com.tutorial.simplecontroller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+@Component
 public class MultiController extends MultiActionController {
 
 	public ModelAndView add(HttpServletRequest request,
