@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import jrout.tutorial.springmvc.employee.model.Employee;
 import jrout.tutorial.springmvc.employee.service.EmployeeService;
@@ -40,8 +41,8 @@ public class EmployeeController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("employee") Employee employee,
-			BindingResult result, SessionStatus status) {
-
+			BindingResult result, SessionStatus status, HttpServletRequest request) {
+		System.out.println("EmployeeController.processSubmit()" + request.getSession().getId());
 		employeeValidator.validate(employee, result);
 
 		if (result.hasErrors()) {
@@ -57,9 +58,16 @@ public class EmployeeController {
 		}
 	}
 
+	/**
+	 * initForm with HttpServletRequest can be used to explicitly get
+	 * the request reference.
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.GET)
+//	public String initForm(ModelMap model, HttpServletRequest request) {
+//		System.out.println("EmployeeController.initForm()" + request.getSession().getId());
 	public String initForm(ModelMap model) {
-
 		Employee cust = new Employee();
 		cust.setFavFramework(new String[] { "Spring MVC" });
 		cust.setSex("F");
