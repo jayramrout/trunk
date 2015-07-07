@@ -17,11 +17,12 @@
 			<version>4.1.6.RELEASE</version>
 		</dependency>
 		
-		<!-- <dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>3.0-alpha-1</version>
-		</dependency> -->
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
