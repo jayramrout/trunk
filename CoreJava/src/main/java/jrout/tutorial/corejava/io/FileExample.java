@@ -11,9 +11,10 @@ public class FileExample {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		createFile();
 		writeContentToFile();
+		readContentFromFile();
 	}
 
 	/**
@@ -26,7 +27,10 @@ public class FileExample {
 			System.out.println("Is the file exist ? " + file.exists()); // look
 																		// for a
 																		// real
-																		// file
+			System.out.println(file.canExecute());
+			System.out.println(file.canRead());
+			System.out.println(file.canWrite());
+			
 			if (!file.exists()) {
 				newFile = file.createNewFile(); // maybe create a file!
 			}
