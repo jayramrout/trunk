@@ -1,4 +1,4 @@
-package jrout.tutorial.corejava.io;
+package jrout.tutorial.corejava.io.serialization;
 
 import java.io.Serializable;
 
@@ -7,23 +7,33 @@ import java.io.Serializable;
  * @author Jayram
  *
  */
-public class Person  implements Serializable {
+public class Person implements Serializable {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -7845340014619097814L;
+	/**
+	 * 
+	 */
+//	private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
 //	private static final long serialVersionUID = -4001883821491656368L;
+	
 	private String name;
 	private String place;
 	private String profession;
 	private transient int ssn; 
+	private String gender;
 	
-	private String role;
-	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public Person(){}
 	public Person(String n, String pr, String place) {
 		name = n; profession = pr; this.place = place;
