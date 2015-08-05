@@ -51,6 +51,8 @@ public class DBController extends HttpServlet {
 		try{
 			StudentDAO dao = new StudentDAO();
 			dao.insertStudentInfo(fname,lname);
+//			String department = dao.selectStudentInfo(fname,lname);
+			//request.setAttribute("dept", department);
 		}catch(ClassNotFoundException exp){
 			exp.printStackTrace();
 			throw new ServletException(exp);

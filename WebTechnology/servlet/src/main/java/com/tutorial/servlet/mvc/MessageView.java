@@ -49,6 +49,9 @@ public class MessageView extends HttpServlet {
 		String lname = request.getParameter("lname");
 		
 		PrintWriter out = response.getWriter();
+//		String dept = (String)request.getAttribute("dept");
+		
+//		out.println("Your deparment name is : "+ dept);
 		
 		out.println("<h1>" + fname + " "+ lname+ " Sucessfully saved in DB</h1>");
 	}

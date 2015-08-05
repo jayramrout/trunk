@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class HelloWorld
  * @WebServlet(description = "My Hello World", urlPatterns = { "/HelloWorld" })
  */
-@WebServlet(description = "Hello Form", urlPatterns = { "/helloForm" })
+@WebServlet(description = "Hello Form", urlPatterns = { "/helloForm"})
 public class HelloForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String message = "";
