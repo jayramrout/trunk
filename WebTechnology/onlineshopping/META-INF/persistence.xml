@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="persistenceUnit">
+        <class>jrout.tutorial.onlineshopping.model.BooksEntity</class>
+        <class>jrout.tutorial.onlineshopping.model.CartEntity</class>
+        <class>jrout.tutorial.onlineshopping.model.HardwareEntity</class>
+        <class>jrout.tutorial.onlineshopping.model.MusicEntity</class>
+        <class>jrout.tutorial.onlineshopping.model.RegistrationEntity</class>
+        <class>jrout.tutorial.onlineshopping.model.SoftwareEntity</class>
+        <properties>
+            <property name="openjpa.ConnectionURL" value="jdbc:oracle:thin:@//localhost:1521/XE"/>
+            <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.OracleDriver"/>
+            <property name="openjpa.ConnectionUserName"/>
+            <property name="openjpa.ConnectionPassword"/>
+        </properties>
+    </persistence-unit>
+</persistence>
