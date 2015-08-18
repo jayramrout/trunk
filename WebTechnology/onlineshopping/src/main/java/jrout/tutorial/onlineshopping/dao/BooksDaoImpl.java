@@ -1,6 +1,7 @@
 package jrout.tutorial.onlineshopping.dao;
 
 import jrout.tutorial.onlineshopping.constants.Constants;
+import jrout.tutorial.onlineshopping.model.BooksEntity;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,14 +48,14 @@ public class BooksDaoImpl implements BooksDao {
     }
 
     @Override
-    public List<String> getBooks(String publisherName) {
-        List<String> pname = new ArrayList<>();
+    public List<BooksEntity> getBooks(String publisherName) {
+        List<BooksEntity> pname = new ArrayList<>();
         try {
             stmt = con.createStatement();
-            String qry = "select pname from books group by pname order by sum(nocs) desc ";
+            String qry = "select title,authors,pname,subject,rate from books where pname = '" + publisherName + "' ";
             rs = stmt.executeQuery(qry);
             while (rs.next()) {
-                pname.add(rs.getString("pname"));
+//                pname.add(rs.getString("pname"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package jrout.tutorial.onlineshopping.dao;
 
+import jrout.tutorial.onlineshopping.model.BooksEntity;
+
 import java.util.List;
 
 /**
@@ -7,5 +9,5 @@ import java.util.List;
  */
 public interface BooksDao {
     public List<String> getPublishers();
-    public List<String> getBooks(String publisherName);
+    public List<BooksEntity> getBooks(String publisherName);
 }
