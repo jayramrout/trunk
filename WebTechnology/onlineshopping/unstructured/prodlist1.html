@@ -1,0 +1,102 @@
+<html>
+<title>Product List</title>
+<body bgcolor=red text=#ffffbb>
+
+<table >
+<tr><td align=center bgcolor=green>
+<pre><font face=impact size=50 color=black>           A TO Z            <br></font><font size=10 color=balck><i>ONLINE SHOPPING</i></FONT></td></tr></PRE>
+<tr><td align="center" bgcolor=olive><font face="script" size=4 color=yellow>SHOPPING WITH  DISCOUNT PRICES</td></tr></font>
+</table>
+</center>
+<center><b>
+<font face=impact size=6 ><u>PRODUCT LIST</u></font></center><br></b>
+<table>
+<tr><th align=left valign=top><ul><li><font size=4>Books</font>
+	<ul>
+	<li>
+	<form action="http://localhost:8080/servlet/bseller" method=get>
+	<b><label><font color=yellow size=4><u>Best Sellers</u></b></font></label>
+	<font size=2><input type=submit name=tbut value="click here"></font></form>
+	</li>
+	<li><form action="http://localhost:8080/servlet/hauthors" method=get><font color=yellow size=4 ><label>
+	<u>Hot Authors</u></font> </label></li>
+	<font size=2><input type=submit name=tbut value="click here"></font></form>
+	<li><form action= "http://localhost:8080/servlet/nrel"><font color=yellow size=4><b><label>
+	<u>New Releases</b></u></font></label>
+	<font size=2><input type=submit name=tbut value="click here"></font></form>
+	<li><form action="http://localhost:8080/servlet/alphorder" method=get>		
+	<font size=4><input type=text size=4 name="alphsrh" ></font>
+	<font size=2><input type=submit name=tbut value="Sreach by alphabet"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/authsrh" method=get>
+	<font size=4><input type=text name=asrh size=4> </font>
+	<font size=2><input type=submit name=abut value="Sreach by Author"></font></form></li>	
+	<li><form action="http://localhost:8080/servlet/subsrh" method=get>
+	<font size=4><input type=text name=ssrh size=4></font>
+	<font size=2><input type=submit name=sbut value="Sreach by Subject"></font></form></li>
+	<br>
+	</ul>
+	</li>
+	<font size=4><b><li>Hardware</li></b></font>
+	<ul><li>
+	<form action="http://localhost:8080/servlet/hware" method=get>
+	<font size=4><input type=text name=hwsrh size=4></font>
+	<font size=2><input type=submit name=hwbut value="Sreach by product"></font></form>
+	</font></a></li>
+	</ul>
+	<font size=4><b><li>Software</li></b></font>
+	<ul><li>
+	<form action="http://localhost:8080/servlet/sware" method=get>
+	<font size=4><input type=text name=swsrh size=4></font>
+	<font size=2><input type=submit name=swbut value="Sreach by product"></font></form>
+	</font></a></li>
+	</ul>
+</li></ul>
+</th>
+<th align=left valign=top><ul><li><font size=4>Music</font>
+	<ul>
+
+	<li><form action="http://localhost:8080/servlet/bo50" method=get>
+	<font color=yellow size=4><b><u>Best of 50's</b></u></font>
+	<font size=2><input type=submit name=b50but value="Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/bo60" method=get>
+	<font color=yellow><b><u>Best of 60's</b></u></font>
+	<font size=2><input type=submit name=b60but value="Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/bo70" method=get>
+	<font color=yellow><b><u>Best of 70's</b></u></font>
+	<font size=2><input type=submit name=b70but value="Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/bo80" method=get>
+	<font color=yellow><b><u>Best of 80's</b></u></font>
+	<font size=2><input type=submit name=b80but value="Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/bo90" method=get>
+	<font color=yellow><b><u>Best of 90's</b></u></font>
+	<font size=2><input type=submit name=b90but value="Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/bom" method=get>
+	<font color=yellow><b><u>Best of Millianium</b></u></font>
+	<font size=2><input type=submit name=bmbut value=" Click here"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/ttalbm"  method=get>
+	<font color=yellow><b><u>Top Ten Albums</b></u></font>
+	<font size=2><input type=submit name=ttsngbut value="Click here" ></font></li> </form>
+	<li><form action="http://localhost:8080/servlet/ttart"  method=get>
+	<label><font color=yellow><b><u>Top Ten Artists</b></u></label></font>
+	<font size=2><input type=submit 	value="Click here" name=ttsngbut></font></li> </form>
+	<li><form action="http://localhost:8080/servlet/ttsng" method=get>
+	<label><font color=yellow><b><u>Top Ten Songs</b></u></label></font>
+	<font size=2><input type=submit 	value="Click here" name=ttsngbut></font></li> </form>
+	<li><form action="http://localhost:8080/servlet/albsh" method=get>
+		<font size=4><input type=text name=albsrh size=4></font>
+	<font size=2> <input type=submit name=albbut value="Sreach by Album"></font>
+	</form></li>
+	<li><form action="http://localhost:8080/servlet/msh" method=get>
+	<font size=4><input type=text name=msrh size=4></font>
+	<font size=2> <input type=submit name=mbut value="Sreach by Movie"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/ssh" method=get>
+	<font size=4><input type=text name=ssrh size=4> </font>
+	<font size=2><input type=submit name=sngbut value="Sreach by Songs"></font></form></li>
+	<li><form action="http://localhost:8080/servlet/artsh" method=get><font size=4><input type=text name=artsrh size=4> </font>
+	<font size=2><input type=submit name=artbut value="Sreach by Artist"></font></form></li>
+	</ul>
+</li></ul>
+</tr>
+</table>
+</body>
+</html>
