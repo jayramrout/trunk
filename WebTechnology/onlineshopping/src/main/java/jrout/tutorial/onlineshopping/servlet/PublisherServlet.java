@@ -34,7 +34,8 @@ public class PublisherServlet extends HttpServlet {
         pw.println("<pre>               Selected items</pre>");
         pw.println("<pre><label>		Item name:        </label><input type=text name=txtinm></pre>");
         pw.println("<pre><label>		Item Quantity:   </label><input type=text name=txtq></pre>");
-        pw.println("<pre><label>		Item type:        </label><input type=text name=txtr></pre>");pw.println("<font size=3><br><br><input type=submit value=Add_to_Cart></font></form>");
+        pw.println("<pre><label>		Item type:        </label><input type=text name=txtr></pre>");
+        pw.println("<font size=3><br><br><input type=submit value=Add_to_Cart></font></form>");
         pw.println("<pre><label> 		Please enter H/h for Hardware  S/s for Software M/m for Music   B/b for Books</pre></label>");
         pw.println("<font size=3><br><br><input type=submit value=Add_to_Cart></font></form>");
     }
