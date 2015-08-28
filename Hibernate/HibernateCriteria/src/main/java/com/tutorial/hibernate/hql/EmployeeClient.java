@@ -67,7 +67,7 @@ public class EmployeeClient {
 //			LogicalExpression andExp = Restrictions.and(salary, name); 
 //			cr.add( andExp );
 			// AND OR Conditions Ends
-			
+
 			// For Order
 			cr.add(Restrictions.gt("salary", new BigDecimal(2000)));
 			cr.addOrder(Order.desc("salary"));
@@ -101,7 +101,7 @@ public class EmployeeClient {
 			tx = session.beginTransaction();
 			Criteria cr = session.createCriteria(Employees.class);
 			// To get total row count. 
-			cr.setProjection(Projections.rowCount()); 
+//			cr.setProjection(Projections.rowCount()); 
 			// To get average of a property. 
 //			cr.setProjection(Projections.avg("salary")); 
 //			// To get distinct count of a property. 
@@ -112,8 +112,25 @@ public class EmployeeClient {
 //			cr.setProjection(Projections.min("salary")); 
 //			// To get sum of a property. 
 //			cr.setProjection(Projections.sum("salary"));
-			List rows = cr.list();
+			
+//			select department_id, count(*),max(salary) as salary from employees group by DEPARTMENT_ID order by salary desc
+			List rows = cr.setProjection(Projections.projectionList()
+					//.add(Projections.property("departmentId"))
+					.add(Projections.rowCount(),"count")
+					.add(Projections.max("salary"),"salary")
+					.add(Projections.groupProperty("departmentId"),"departmentId"))
+				.addOrder(Order.desc("salary")).list();
+			
+			for (Iterator iterator = rows.iterator(); iterator.hasNext();){ 
+				Object[] employee = (Object[]) iterator.next(); 
+				System.out.println(employee[0] +" " + employee[1] + " "+ employee[2]); 
+			}
+			
+			
+			rows = cr.list();
 			System.out.println("Total Count: " + rows.get(0));
+			System.out.println("Rows : " + rows);
+			
 			tx.commit();
 		}catch(HibernateException exp){
 			exp.printStackTrace();
