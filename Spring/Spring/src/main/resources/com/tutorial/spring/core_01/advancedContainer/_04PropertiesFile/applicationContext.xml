@@ -6,7 +6,7 @@
 	<bean id="propConfig"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location"> <!--value = "pf\demo.properties" -->
-			<value>com/tutorial/spring/core_01/applicationContextContainer/_04PropertiesFile/pf/demo.properties</value>
+			<value>com/tutorial/spring/core_01/advancedContainer/_04PropertiesFile/pf/demo.properties</value>
 		</property>
 	</bean>
 
