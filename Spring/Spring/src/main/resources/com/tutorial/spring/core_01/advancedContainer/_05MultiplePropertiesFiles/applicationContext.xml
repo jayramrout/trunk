@@ -7,8 +7,8 @@
 	<bean id = "propConfig" class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>com/tutorial/spring/core_01/applicationContextContainer/_05MultiplePropertiesFiles/pf/pf2.properties</value>
-				<value>com/tutorial/spring/core_01/applicationContextContainer/_05MultiplePropertiesFiles/pf/pf1.properties</value>
+				<value>com/tutorial/spring/core_01/advancedContainer/_05MultiplePropertiesFiles/pf/pf1.properties</value>
+				<value>com/tutorial/spring/core_01/advancedContainer/_05MultiplePropertiesFiles/pf/pf2.properties</value>
 			</list>
 		</property>
 	</bean>
