@@ -25,7 +25,8 @@ public class Restaurant {
 		}
 		/*
 		 * Below code is used to wait for all the threads to finish.
-		 * and then it prints the Total time
+		 * and then it prints the Total time.
+		 * Use Join of Thread.activeCount
 		 */
 		/*try {
 			for (Thread t : threads) {
