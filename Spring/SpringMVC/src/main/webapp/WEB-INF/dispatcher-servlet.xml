@@ -1,5 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
@@ -11,7 +12,7 @@
 	<context:component-scan base-package="com.tutorial.controllers"/>
 	
 	<!-- SimpleUrlHandlerMapping Below -->
-	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	 <!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/hi.htm">hiController</prop>
@@ -19,8 +20,14 @@
 			</props>
 		</property>
 		<property name="order" value="1" />
-	</bean> -->
-
+	</bean>
+	
+	<bean id="hiController" class="com.tutorial.simplecontroller.HiController">
+		<property name="message" value="From SimpleUrl Handler Mapping"></property>
+	</bean>
+	
+	<bean id="multiController" class="com.tutorial.simplecontroller.MultiController"/> -->
+	
 	<!-- BeanNameUrlHandlerMapping Below which is default -->
 	<!-- <bean name="/hi.htm" class="com.tutorial.controllers.HiController" p:message="BeanNameURL" /> -->
 

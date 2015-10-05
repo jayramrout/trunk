@@ -14,17 +14,18 @@ public class AppLoad {
 		 * If no rows in db then it throws Exception : org.hibernate.ObjectNotFoundException
 		 */
 		DBUser obj = null;
-		obj = (DBUser)session.load(DBUser.class,200);
-//		System.out.println("AppGet.main() 1" + obj.getUsername());
+		obj = (DBUser)session.load(DBUser.class,352);
+		System.out.println("AppGet.main() 1" + obj.getCreatedBy());
 
 		/**
 		 * Returns Void
 		 * its Early Loading
+		 * If no rows in db then it throws Exception : org.hibernate.ObjectNotFoundException
 		 */
 		obj = new DBUser();
-		session.load(obj,200);
+		session.load(obj,352);
 		
-		System.out.println("AppGet.main() 2" + obj.getUserId());
+//		System.out.println("AppGet.main() 2" + obj.getUserId());
 		
 		session.close();
 	}

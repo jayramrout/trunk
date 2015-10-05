@@ -29,16 +29,16 @@
     <bean id="messageReceiver" class="jrout.tutorial.jmsspring.receiver.SpringMessageReceiver">
     </bean>
     
- 	<!-- <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+ 	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
         <constructor-arg index="0" value="StudentTopic"/>
-    </bean> -->
+    </bean>
     <bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory" />
         <!-- For Queue only name is OK to give-->
-        <!-- <property name="destinationName" value="StudentTopic" /> -->
+        <!-- <property name="destinationName" value="StudentQueue" /> -->
         
         <!-- For Topic, we have to create a topicDestination Bean and use below-->
-        <!-- <property name="destination" ref="topicDestination" /> -->
+        <property name="destination" ref="topicDestination" />
         
         <property name="messageListener" ref="messageReceiver" />
     </bean>

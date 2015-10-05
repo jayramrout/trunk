@@ -1,9 +1,15 @@
 package jrout.tutorial.corejava.threads.waitnotify;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class WaitNotifyAll {
 	public static void main(String[] args) {
+		
 		Calculator calculator = new Calculator();
-
+//		ExecutorService exec = Executors.newFixedThreadPool(10);
+//		exec.submit(calculator);
+		
 		new Reader(calculator).start();
 		new Reader(calculator).start();
 		new Reader(calculator).start();
@@ -13,6 +19,7 @@ public class WaitNotifyAll {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+//		
 		calculator.start();
 	}
 }

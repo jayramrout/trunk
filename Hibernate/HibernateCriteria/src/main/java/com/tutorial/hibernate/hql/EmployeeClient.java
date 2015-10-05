@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -30,7 +32,7 @@ public class EmployeeClient {
 			throw new ExceptionInInitializerError(ex); 
 		}
 //		criteriaExamples();
-//		projections();
+		projections();
 	}
 	
 	public static void criteriaExamples(){
@@ -61,11 +63,11 @@ public class EmployeeClient {
 //			Criterion name = Restrictions.ilike("firstName","D%");
 //			LogicalExpression orExp = Restrictions.or(salary, name); 
 //			cr.add( orExp );
-////			
+////		
 //			LogicalExpression andExp = Restrictions.and(salary, name); 
 //			cr.add( andExp );
 			// AND OR Conditions Ends
-			
+
 			// For Order
 			cr.add(Restrictions.gt("salary", new BigDecimal(2000)));
 			cr.addOrder(Order.desc("salary"));
@@ -86,9 +88,11 @@ public class EmployeeClient {
 		}
 	}
 	/**
+	 * How to use aggregate functions
 	 * The Criteria API provides the org.hibernate.criterion.Projections class which can be used to get average, 
 	 * maximum or minimum of the property values. The Projections class is similar to the Restrictions class in 
 	 * that it provides several static factory methods for obtaining Projection instances.
+	 * 
 	 */
 	public static void projections(){
 		Session session = factory.openSession();
@@ -101,15 +105,32 @@ public class EmployeeClient {
 			// To get average of a property. 
 //			cr.setProjection(Projections.avg("salary")); 
 //			// To get distinct count of a property. 
-			cr.setProjection(Projections.countDistinct("firstName")); 
+//			cr.setProjection(Projections.countDistinct("firstName")); 
 //			// To get maximum of a property. 
 //			cr.setProjection(Projections.max("salary")); 
 //			// To get minimum of a property. 
 //			cr.setProjection(Projections.min("salary")); 
 //			// To get sum of a property. 
 //			cr.setProjection(Projections.sum("salary"));
-			List rows = cr.list();
+			
+//			select department_id, count(*),max(salary) as salary from employees group by DEPARTMENT_ID order by salary desc
+			List rows = cr.setProjection(Projections.projectionList()
+					//.add(Projections.property("departmentId"))
+					.add(Projections.rowCount(),"count")
+					.add(Projections.max("salary"),"salary")
+					.add(Projections.groupProperty("departmentId"),"departmentId"))
+				.addOrder(Order.desc("salary")).list();
+			
+			for (Iterator iterator = rows.iterator(); iterator.hasNext();){ 
+				Object[] employee = (Object[]) iterator.next(); 
+				System.out.println(employee[0] +" " + employee[1] + " "+ employee[2]); 
+			}
+			
+			
+			rows = cr.list();
 			System.out.println("Total Count: " + rows.get(0));
+			System.out.println("Rows : " + rows);
+			
 			tx.commit();
 		}catch(HibernateException exp){
 			exp.printStackTrace();

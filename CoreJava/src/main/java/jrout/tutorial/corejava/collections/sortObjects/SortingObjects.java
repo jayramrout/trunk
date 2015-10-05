@@ -25,7 +25,7 @@ public final class  SortingObjects {
     /**
      *
      */
-    public static void sortUsingAnnomimousInnerClass() {
+    public static void sortUsingAnonymousInnerClass() {
         Collections.sort(list, new Comparator<Person>() {
             @Override
             public int compare(Person o1, Person o2) {

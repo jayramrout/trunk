@@ -13,11 +13,10 @@ public class CustomerClientLoad {
 
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
-		CompositeKey compositeKey = new CompositeKey(1, 7);
+		
 		CustomerBean customerBean = new CustomerBean();
-		customerBean.setKey(compositeKey);
+		session.load(customerBean, new CompositeKey(1, 7));
 
-		session.load(customerBean, compositeKey);
 		System.out.println("Customer Transaction amount is: ");
 		System.out.println(customerBean.getAmount());
 

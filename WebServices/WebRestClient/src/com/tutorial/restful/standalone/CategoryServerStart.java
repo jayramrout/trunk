@@ -24,10 +24,17 @@ public class CategoryServerStart {
 		restServer.create();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		try {
-			br.readLine();
+			String str = "";
+			while((str = br.readLine()) != null) {
+				System.out.println(str);
+				if("Quit".equals(str)){
+					System.out.println("Server Stopped");
+					System.exit(0);			
+				}
+			}
+			
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		System.out.println("Server Stopped");
-		System.exit(0);
 	}
 }

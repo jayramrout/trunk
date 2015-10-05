@@ -1,26 +1,46 @@
 package jrout.tutorial.corejava.collections;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
+
+import jrout.tutorial.corejava.io.serialization.Person;
 
 public class ArrayListExample {
 
     public static void main(String[] args) {
-//        arrayListExample();
+        arrayListExample();
+//    	vectorExample();
 //        iterateArrayList();
-        methodReference();
+//        methodReference();
+//        generics();
     }
 
     /**
      * ArrayList is Ordered
      */
     public static void arrayListExample() {
+    	
         List list = getNumbersFromDataBase();
-        System.out.println(list);
+//        System.out.println(list);
         list.add(2, "THREE");
+//        System.out.println(list);
+        
         System.out.println(list);
+        Iterator iter = list.iterator();
+        while(iter.hasNext()) {
+        	String name = (String)iter.next();
+        	System.out.println(name);
+        	if("FOUR".equals(name)){
+        		iter.remove();
+        	}
+        }
+        
+        System.out.println(list);
+        
     }
 
 
@@ -55,6 +75,7 @@ public class ArrayListExample {
         list.add("FOUR");
         list.add("FIVE");
         list.add("SIX");
+        
         return list;
     }
 
@@ -68,8 +89,33 @@ public class ArrayListExample {
         numbers.add("FOUR");
         numbers.add("FIVE");
         numbers.add("SIX");
-
-        numbers.forEach(System.out::println);
-
+        
+        Collections.synchronizedList(numbers);
+        
+        numbers.forEach(System.out::print);
+    }
+    
+    
+    public static void generics() {
+    	List<String> numbers = new ArrayList();
+        numbers.add("ONE");
+        numbers.add("TWO");
+        numbers.add("FOUR");
+        numbers.add("FIVE");
+        numbers.add("SIX");
+        
+        List<Person> persons = new ArrayList<Person>();
+        Person per = new Person();
+        persons.add(per);
+        
+        for(String str : numbers) {
+        	System.out.println(str);
+        }
+    }
+    
+    public static void vectorExample() {
+    	Vector vec = new Vector();
+    	vec.add("ONE");
+    	Iterator iter = vec.iterator();
     }
 }
