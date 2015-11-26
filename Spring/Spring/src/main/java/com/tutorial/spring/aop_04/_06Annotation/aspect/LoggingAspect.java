@@ -4,13 +4,23 @@ import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
+@Component
 public class LoggingAspect {
 	private static final Logger LOGGER = Logger.getLogger(LoggingAspect.class);
 
+	//execution(* set*(..))  :the execution of any method with a name beginning with "set":
+	//execution(public * *(..)) :the execution of any public method
+	// execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.*(..)) : the execution of any method defined by the Customer interface
+	//execution(* com.xyz.service.*.*(..)) :the execution of any method defined in the service package
+	//execution(* com.xyz.service..*.*(..)) :execution of any method defined in the service package or a sub-package
+	//within(com.xyz.service.*) :any join point (method execution only in Spring AOP) within the service package
+	//within(com.xyz.service..*) :ny join point (method execution only in Spring AOP) within the service package or a sub-package
+	//this(com.xyz.service.AccountService) :any join point (method execution only in Spring AOP) where the proxy implements the AccountService interface
 	@Before("execution(* com.tutorial.spring.aop_04._06Annotation.customer.Customer.addCustomer(..))")
 	public void logBefore(JoinPoint joinPoint) {
 		LOGGER.info("logBefore() is running!");
