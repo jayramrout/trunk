@@ -15,6 +15,13 @@
 			</all>
 		</complexType>
 	</element>
+	<element name="EmployeeMessage">
+		<complexType>
+			<all>
+				<element name="message" type="string"></element>
+			</all>
+		</complexType>
+	</element>
 	<complexType name="EmployeeType">
 		<sequence>
 			<element name="FirstName"  type="string"/>
