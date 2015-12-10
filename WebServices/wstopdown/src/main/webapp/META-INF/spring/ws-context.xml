@@ -7,10 +7,15 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan base-package="jayramrout.tutorial.ws" />
-	<sws:annotation-driven/>
-	<!-- <sws:dynamic-wsdl id="employee" portTypeName="EmployeePort" locationUri="/employeeService/" 
-		targetNamespace="http://tutorial.jayramrout/employee/definations"> 
-		<sws:xsd location="/WEB-INF/xsd/employee.xsd"/> 
-		</sws:dynamic-wsdl> -->
-		<sws:static-wsdl id="employee" location="/WEB-INF/xsd/employee.xsd" />
+	<sws:annotation-driven />
+	
+	<!--  
+		http://localhost:8081/wstopdown/employee.wsdl?
+		Inorder to access the spring ws wsdl use the above url
+	-->
+	<sws:dynamic-wsdl id="employee" portTypeName="EmployeePort"
+		locationUri="/employeeService/" targetNamespace="http://tutorial.jayramrout/employee/definations">
+		<sws:xsd location="/WEB-INF/xsd/employee.xsd" />
+	</sws:dynamic-wsdl>
+	<!-- <sws:static-wsdl id="employee" location="/WEB-INF/wsdl/employee.wsdl" /> -->
 </beans>

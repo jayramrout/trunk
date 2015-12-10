@@ -8,7 +8,13 @@
 			</all>
 		</complexType>
 	</element>
-	
+	<element name="EmployeeLeaveRequest">
+		<complexType>
+			<all>
+				<element name="Employee" type="emp:EmployeeType"></element>
+			</all>
+		</complexType>
+	</element>
 	<complexType name="EmployeeType">
 		<sequence>
 			<element name="FirstName"  type="string"/>
