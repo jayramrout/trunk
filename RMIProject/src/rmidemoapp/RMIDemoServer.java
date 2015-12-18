@@ -6,14 +6,14 @@ import java.rmi.registry.Registry;
 
 public class RMIDemoServer {
 	public static void main(String[] args) throws Exception {
-		RMIDemoImpl impl = new RMIDemoImpl();
+		RMIDemo impl = new RMIDemoImpl();
 		
 		/*
 		 * This need rmiregistry to be started prior to running this program
 		 */
-		//Naming.rebind("RMIDemo", impl);	
-		
-		
+//		String url = "rmi://localhost/RMIDemo";
+//		Naming.rebind(url, impl);	
+
 		/*
 		 * Below approach does not need rmiregistry to run prior to running this Program.
 		 * This takes care of binding and starting the server. 
