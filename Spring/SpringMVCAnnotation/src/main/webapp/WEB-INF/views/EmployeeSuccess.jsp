@@ -8,49 +8,49 @@
 	<table>
 		<tr>
 			<td>UserName :</td>
-			<td>${customer.userName}</td>
+			<td>${employee.userName}</td>
 		</tr>
 		<tr>
 			<td>Address :</td>
-			<td>${customer.address}</td>
+			<td>${employee.address}</td>
 		</tr>
 		<tr>
 			<td>Password :</td>
-			<td>${customer.password}</td>
+			<td>${employee.password}</td>
 		</tr>
 		<tr>
 			<td>Confirm Password :</td>
-			<td>${customer.confirmPassword}</td>
+			<td>${employee.confirmPassword}</td>
 		</tr>
 		<tr>
 			<td>Receive Newsletter :</td>
-			<td>${customer.receiveNewsletter}</td>
+			<td>${employee.receiveNewsletter}</td>
 		</tr>
 		<tr>
 			<td>Favourite Web Frameworks :</td>
-			<td><c:forEach items="${customer.favFramework}" var="current">
+			<td><c:forEach items="${employee.favFramework}" var="current">
    [<c:out value="${current}" />]
 </c:forEach></td>
 		</tr>
 		<tr>
 			<td>Sex :</td>
-			<td>${customer.sex}</td>
+			<td>${employee.sex}</td>
 		</tr>
 		<tr>
 			<td>Favourite Number :</td>
-			<td>${customer.favNumber}</td>
+			<td>${employee.favNumber}</td>
 		</tr>
 		<tr>
 			<td>Country :</td>
-			<td>${customer.country}</td>
+			<td>${employee.country}</td>
 		</tr>
 		<tr>
 			<td>Java Skills :</td>
-			<td>${customer.javaSkills}</td>
+			<td>${employee.javaSkills}</td>
 		</tr>
 		<tr>
 			<td>Hidden Value :</td>
-			<td>${customer.secretValue}</td>
+			<td>${employee.secretValue}</td>
 		</tr>
 	</table>
 </body>
