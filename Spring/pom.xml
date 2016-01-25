@@ -33,6 +33,7 @@
 	</properties>
 	<modules>
 		<module>Spring</module>
+		<module>SpringMVC</module>
 		<module>SpringMVCAnnotation</module>
 		<!--<module>SpringMVC</module>
 		<module>SpringMVCAnnotation</module>-->
