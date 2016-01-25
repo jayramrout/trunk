@@ -19,7 +19,7 @@ public class OrderClient {
 		
 		Map<String,Object> outProps = new HashMap<String,Object>();
 		outProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
-		outProps.put(WSHandlerConstants.USER, "excel");
+		outProps.put(WSHandlerConstants.USER, "jayram");
 		outProps.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
 		outProps.put(WSHandlerConstants.PW_CALLBACK_CLASS,ClientPasswordHandler.class.getName());
 
