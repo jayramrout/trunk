@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="javaAddress" class="jrout.tutorial.springcore.Address">
+		<property name="country" value="USA" />
+		<property name="streeAddress" value="Lexinton Street Ave" />
+	</bean>
+
+	<bean id="hello" class="jrout.tutorial.springcore.JavaWorldImpl">
+		<property name="courseFee" value="400" />
+		<property name="duration" value="2 months" />
+		<property name="address" ref="javaAddress"/>
+	</bean>
+</beans>
