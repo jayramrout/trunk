@@ -7,10 +7,10 @@ public class DemoBean implements Demo {
 		System.out.println("Zero arg constructor of DemoBean class");
 	}
 
-	/*public DemoBean(TestBean tb) {
+	public DemoBean(TestBean tb) {
 		System.out.println("One arg constructor of DemoBean class");
 		this.tb = tb;
-	}*/
+	}
 
 	public void setTb(TestBean tb) {
 		System.out.println("setTb() of DemoBean class");
