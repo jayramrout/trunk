@@ -12,14 +12,13 @@ public class DemoClient {
 	public static void main(String args[]) {
 
 		Resource res = new ClassPathResource(
-				"com/tutorial/core_01/coreContainer/_02SingletonDemo/Demo.xml");
+				"com\\tutorial\\spring\\core_01\\coreContainer\\_02SingletonDemo\\Demo.xml");
 		BeanFactory factory = new XmlBeanFactory(res);
 
-		DemoInterImpl d1 = (DemoInterImpl) factory.getBean("demo");
+		DemoInter d1 = (DemoInterImpl) factory.getBean("demo");
 
 		System.out.println(d1.wish("friends"));
 
-		d1.hi();
 		DemoInter d2 = (DemoInter) factory.getBean("demo");
 
 		System.out.println(d2.wish("Friends"));
