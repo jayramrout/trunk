@@ -8,16 +8,15 @@ steps:
 4. read data from Map object, set to bean class object & display
  */
 
+import org.springframework.jdbc.core.SqlOutParameter;
+import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.object.StoredProcedure;
+
+import javax.sql.DataSource;
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.sql.DataSource;
-
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
-import org.springframework.jdbc.object.StoredProcedure;
-import org.springframework.jdbc.datasource.*;
 
 public class SimpleJdbcCallTest {
     public static void main(String args[]) {
@@ -27,28 +26,14 @@ public class SimpleJdbcCallTest {
         dataSource.setUsername("HR");
         dataSource.setPassword("HR");
 
-        Employee emp = (Employee)
-                getEmployeeDetailsWithStoredProcedure(dataSource, "Neena");
-        System.out.println("Allen Details : " + emp);
+        MyStoredProcedure sp = new MyStoredProcedure(dataSource);
+
+        Map results = sp.callProcedure("Neena");
+        System.out.println("EmpID "+results.get("NO"));
+        System.out.println("Desg "+results.get("DESG"));
+        System.out.println("Sal "+results.get("SALARY"));
     }
-
-    private static Object getEmployeeDetailsWithStoredProcedure
-            (DataSource ds, String ename) {
-
-        MyStoredProcedure sp = new MyStoredProcedure(ds);
-        //call procedure
-        Map results = sp.myexecute(ename);
-        //set outparmeter values to emp object
-        Employee emp = new Employee();
-        emp.setName(ename);
-        emp.setNo((Integer) results.get("NO"));
-        emp.setDesignation((String) results.get("DESG"));
-        emp.setSalary((Double) results.get("SALARY"));
-
-        return emp;
-    }//method2
-
-    private static class MyStoredProcedure extends StoredProcedure {
+   private static class MyStoredProcedure extends StoredProcedure {
         public MyStoredProcedure(DataSource ds) {
             super(ds, "GET_EMP_DATA");
             this.setFunction(false); //false -> indicates its a stored procedure
@@ -61,13 +46,13 @@ public class SimpleJdbcCallTest {
             };
             this.setParameters(params);
             compile();
-        }//constructor
+        }
 
-        public Map myexecute(String name) {
+        public Map callProcedure(String name) {
             HashMap map = new HashMap();
             map.put("NAME", name);
             return super.execute(map);
         }
 
-    }//inner class
-}//outerclass
+    }
+}
