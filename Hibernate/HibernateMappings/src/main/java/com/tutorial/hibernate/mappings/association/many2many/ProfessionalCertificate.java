@@ -5,13 +5,13 @@ package com.tutorial.hibernate.mappings.association.many2many;
  * @author Jayram
  *
  */
-public class Certificate {
+public class ProfessionalCertificate {
 
 	private int id; 
 	private String name;
 
-	public Certificate() {} 
-	public Certificate(String name) { 
+	public ProfessionalCertificate() {} 
+	public ProfessionalCertificate(String name) { 
 		this.name = name; 
 	}
 	public int getId() {
@@ -30,7 +30,7 @@ public class Certificate {
 		if (obj == null) return false; 
 		if (!this.getClass().equals(obj.getClass())) 
 			return false; 
-		Certificate obj2 = (Certificate)obj; 
+		ProfessionalCertificate obj2 = (ProfessionalCertificate)obj; 
 		if((this.id == obj2.getId()) && (this.name.equals(obj2.getName()))) { 
 			return true; 
 		} 

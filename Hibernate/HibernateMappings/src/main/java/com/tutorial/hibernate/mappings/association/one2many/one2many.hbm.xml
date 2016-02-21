@@ -3,7 +3,6 @@
 	<class
 		name="com.tutorial.hibernate.mappings.association.one2many.Employee"
 		table="EMPLOYEE">
-		<meta attribute="class-description"> This class contains the employee detail. </meta>
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
@@ -17,9 +16,6 @@
 	</class>
 	
 	<class name="com.tutorial.hibernate.mappings.association.one2many.Certificate" table="CERTIFICATE">
-		<meta attribute="class-description"> 
-			This class contains the certificate records.
-		</meta>
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>

@@ -23,10 +23,12 @@ public class One2OneClient {
 		}
 
 		Address address1 = addAddress("Semi","BBSR","ORISSA","455555");
-		Integer empid1 = addEmployee("Jayram", "Rout", 3000, address1);
+		Integer empid1 = addPerson("Jayram", "Rout", 3000, address1);
 		
 		Address address2 = addAddress("Semi","BBSR","ORISSA","455555");
-		Integer empid2 = addEmployee("Tanu", "Rout", 5000, address2);
+		Integer empid2 = addPerson("Tanu", "Rout", 5000, address2);
+		
+		listPersons();
 	}
 	/**
 	 * 
@@ -56,14 +58,14 @@ public class One2OneClient {
 		return address; 
 	}
 	/* Method to add an employee record in the database */ 
-	public static Integer addEmployee(String fname, String lname, int salary, Address address){ 
+	public static Integer addPerson(String fname, String lname, int salary, Address address){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		Integer employeeID = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = new Employee(fname, lname, salary, address); 
-			employeeID = (Integer) session.save(employee); 
+			Person person = new Person(fname, lname, salary, address); 
+			employeeID = (Integer) session.save(person); 
 			tx.commit();
 		}catch (HibernateException e) { 
 			if (tx!=null) tx.rollback(); 
@@ -75,14 +77,14 @@ public class One2OneClient {
 	}
 
 	/* Method to list all the employees detail */ 
-	public static void listEmployees( ){ 
+	public static void listPersons( ){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			List employees = session.createQuery("FROM Employee").list(); 
-			for (Iterator iterator = employees.iterator(); iterator.hasNext();){ 
-				Employee employee = (Employee) iterator.next(); 
+			List persons = session.createQuery("FROM Person").list(); 
+			for (Iterator iterator = persons.iterator(); iterator.hasNext();){ 
+				Person employee = (Person) iterator.next(); 
 				System.out.print("First Name: " + employee.getFirstName()); 
 				System.out.print(" Last Name: " + employee.getLastName()); 
 				System.out.println(" Salary: " + employee.getSalary()); 
@@ -104,12 +106,12 @@ public class One2OneClient {
 	}
 
 	/* Method to update salary for an employee */ 
-	public static void updateEmployee(Integer EmployeeID, int salary ){ 
+	public static void updatePerson(Integer personId, int salary ){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
+			Person employee = (Person)session.get(Person.class, personId); 
 			employee.setSalary( salary ); 
 			session.update(employee); 
 			tx.commit(); 
@@ -120,12 +122,12 @@ public class One2OneClient {
 		} 
 	} 
 	/* Method to delete an employee from the records */ 
-	public void deleteEmployee(Integer EmployeeID){ 
+	public void deletePerson(Integer personID){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
+			Person employee = (Person)session.get(Person.class, personID); 
 			session.delete(employee); tx.commit(); 
 		}catch (HibernateException e) { 
 			if (tx!=null)

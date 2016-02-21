@@ -22,7 +22,8 @@ public class Many2OneClient {
 			throw new ExceptionInInitializerError(ex); 
 		}
 
-		Address address = addAddress("Semi","BBSR","ORISSA","455555");
+		HomeAddress address = addAddress("Semi","BBSR","ORISSA","455555");
+		
 		Integer empid1 = addEmployee("Jayram", "Rout", 3000, address);
 		Integer empid2 = addEmployee("Tanu", "Rout", 5000, address);
 	}
@@ -34,14 +35,14 @@ public class Many2OneClient {
 	 * @param zipcode
 	 * @return
 	 */
-	public static Address addAddress(String street, String city, String state, String zipcode) { 
+	public static HomeAddress addAddress(String street, String city, String state, String zipcode) { 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		Integer addressID = null; 
-		Address address = null; 
+		HomeAddress address = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			address = new Address(street, city, state, zipcode); 
+			address = new HomeAddress(street, city, state, zipcode); 
 			addressID = (Integer) session.save(address); 
 			tx.commit(); 
 		}catch (HibernateException e) { 
@@ -54,13 +55,13 @@ public class Many2OneClient {
 		return address; 
 	}
 	/* Method to add an employee record in the database */ 
-	public static Integer addEmployee(String fname, String lname, int salary, Address address){ 
+	public static Integer addEmployee(String fname, String lname, int salary, HomeAddress address){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		Integer employeeID = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = new Employee(fname, lname, salary, address); 
+			H2kEmployee employee = new H2kEmployee(fname, lname, salary, address); 
 			employeeID = (Integer) session.save(employee); 
 			tx.commit();
 		}catch (HibernateException e) { 
@@ -80,11 +81,11 @@ public class Many2OneClient {
 			tx = session.beginTransaction(); 
 			List employees = session.createQuery("FROM Employee").list(); 
 			for (Iterator iterator = employees.iterator(); iterator.hasNext();){ 
-				Employee employee = (Employee) iterator.next(); 
+				H2kEmployee employee = (H2kEmployee) iterator.next(); 
 				System.out.print("First Name: " + employee.getFirstName()); 
 				System.out.print(" Last Name: " + employee.getLastName()); 
 				System.out.println(" Salary: " + employee.getSalary()); 
-				Address add = employee.getAddress(); 
+				HomeAddress add = employee.getAddress(); 
 				System.out.println("Address "); 
 				System.out.println("\tStreet: " + add.getStreet()); 
 				System.out.println("\tCity: " + add.getCity()); 
@@ -107,7 +108,7 @@ public class Many2OneClient {
 		Transaction tx = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
+			H2kEmployee employee = (H2kEmployee)session.get(H2kEmployee.class, EmployeeID); 
 			employee.setSalary( salary ); 
 			session.update(employee); 
 			tx.commit(); 
@@ -123,7 +124,7 @@ public class Many2OneClient {
 		Transaction tx = null; 
 		try{ 
 			tx = session.beginTransaction(); 
-			Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
+			H2kEmployee employee = (H2kEmployee)session.get(H2kEmployee.class, EmployeeID); 
 			session.delete(employee); tx.commit(); 
 		}catch (HibernateException e) { 
 			if (tx!=null)

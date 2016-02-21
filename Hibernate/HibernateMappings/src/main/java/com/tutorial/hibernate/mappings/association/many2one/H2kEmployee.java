@@ -1,22 +1,21 @@
-package com.tutorial.hibernate.mappings.association.many2many;
+package com.tutorial.hibernate.mappings.association.many2one;
 
-
-import java.util.Set;
-
-public class Employee{
+public class H2kEmployee{
 	private int id; 
 	private String firstName; 
 	private String lastName; 
 	private int salary; 
-	private Set certificates;
+	private HomeAddress address;
 	
-	public Employee() {}
+	public H2kEmployee() {}
 	
-	public Employee(String firstName, String lastName, int salary) {
+	public H2kEmployee(String firstName, String lastName, int salary,
+			HomeAddress address) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
+		this.address = address;
 	}
 
 	public int getId() {
@@ -51,12 +50,11 @@ public class Employee{
 		this.salary = salary;
 	}
 
-	public Set getCertificates() {
-		return certificates;
+	public HomeAddress getAddress() {
+		return address;
 	}
 
-	public void setCertificates(Set certificates) {
-		this.certificates = certificates;
+	public void setAddress(HomeAddress address) {
+		this.address = address;
 	}
-
 }

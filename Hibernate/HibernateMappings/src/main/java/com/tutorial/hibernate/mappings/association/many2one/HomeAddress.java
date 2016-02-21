@@ -1,15 +1,15 @@
 package com.tutorial.hibernate.mappings.association.many2one;
 
-public class Address {
+public class HomeAddress {
 
 	private int id; 
 	private String street; 
 	private String city; 
 	private String state; 
 	private String zipcode;
-	public Address() {
+	public HomeAddress() {
 	}
-	public Address(String street, String city, String state,
+	public HomeAddress(String street, String city, String state,
 			String zipcode) {
 		this.street = street;
 		this.city = city;
