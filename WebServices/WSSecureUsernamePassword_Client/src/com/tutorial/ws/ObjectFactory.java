@@ -36,19 +36,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ProcessOrder }
-     * 
-     */
-    public ProcessOrder createProcessOrder() {
-        return new ProcessOrder();
-    }
-
-    /**
      * Create an instance of {@link Order }
      * 
      */
     public Order createOrder() {
         return new Order();
+    }
+
+    /**
+     * Create an instance of {@link ProcessOrder }
+     * 
+     */
+    public ProcessOrder createProcessOrder() {
+        return new ProcessOrder();
     }
 
     /**
