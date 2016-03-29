@@ -34,6 +34,8 @@
         <module>Hibernate/HibernateCache</module>
         <module>Hibernate/HibernateCriteria</module>
         <module>Hibernate/HibernateMappings</module>
+        <module>Hibernate/HibernateCore</module>
+        <module>Hibernate/HibernateAlgorithms</module>
         <module>JavaMessagingService/ActiveMQSpring</module>
         <module>Mail</module>
         <module>RMIProject</module>
