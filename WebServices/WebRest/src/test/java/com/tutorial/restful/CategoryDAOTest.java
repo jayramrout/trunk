@@ -27,7 +27,7 @@ public class CategoryDAOTest {
 
 	@Test
 	public void testGetBooks() {
-	//	assertNotNull(cdao.getBooks("001"));
+	//	assertNotNull(cdao.getBooks("001")); //change
 //		fail("Not yet implemented");
 	}
 	
