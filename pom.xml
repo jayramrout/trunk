@@ -30,6 +30,7 @@
     </properties>
     <modules>
         <module>CoreJava</module>
+        <module>Hibernate/JBossHibernate</module>
         <module>Hibernate/GuestBook</module>
         <module>Hibernate/HibernateCache</module>
         <module>Hibernate/HibernateCriteria</module>
