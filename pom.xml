@@ -31,7 +31,6 @@
     <modules>
         <module>CoreJava</module>
         <module>Hibernate/HibernateCache</module>
-        <module>Hibernate/HibernateCache</module>
         <module>Hibernate/HibernateCriteria</module>
         <module>Hibernate/HibernateMappings</module>
         <module>Hibernate/HibernateCore</module>
