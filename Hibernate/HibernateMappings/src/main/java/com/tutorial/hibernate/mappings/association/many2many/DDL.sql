@@ -16,8 +16,8 @@ create table PROF_CERTIFICATE (
 	PRIMARY KEY (id) 
 );
 
-create table STUD_CERT ( 
-	employee_id INT NOT NULL, 
+create table STUDENT_CERT_BRIDGE (
+	student_id INT NOT NULL,
 	certificate_id INT NOT NULL, 
-	PRIMARY KEY (employee_id,certificate_id) 
+	PRIMARY KEY (student_id,certificate_id)
 );
