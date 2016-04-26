@@ -1,13 +1,12 @@
 package com.tutorial.jaxb;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "book")
-// If you want you can define the order in which the fields are written
-// Optional
-@XmlType( propOrder = { "author", "name", "publisher", "isbn" })
+@XmlType( propOrder = { "author", "name", "isbn","publisher"})
 public class Book {
 
 	private String name;
