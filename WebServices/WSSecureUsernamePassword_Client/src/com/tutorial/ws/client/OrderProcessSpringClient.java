@@ -13,8 +13,9 @@ import com.tutorial.ws.OrderProcess;
 public class OrderProcessSpringClient {
 
 	public static void main(String[] args) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"client-beans.xml"});
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"client-applicationContext.xml"});
 		OrderProcess orderProcess = (OrderProcess) context. getBean("orderClient");
+		
 		Order order = new Order();
         order.setCustomerID("001");
         order.setItemID("Item01");
