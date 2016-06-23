@@ -1,13 +1,9 @@
 package com.tutorial.spring.orm_03._03SpringHibernateApproach2;
 
+import org.springframework.orm.hibernate4.HibernateTemplate;
+
 import java.util.Iterator;
 import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-
 
 public class DemoImpl implements DemoInter {
 

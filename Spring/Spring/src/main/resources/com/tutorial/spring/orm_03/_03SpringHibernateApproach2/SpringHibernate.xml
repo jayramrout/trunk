@@ -5,7 +5,7 @@
 	<import resource="classpath:com/tutorial/spring/datasource/DataSource.xml" />
 
 	<bean id="mySessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources">
 			<list>
@@ -20,7 +20,7 @@
 	</bean>
 
 
-	<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+	<bean id="template" class="org.springframework.orm.hibernate4.HibernateTemplate">
 		<constructor-arg>
 			<ref bean="mySessionFactory" />
 		</constructor-arg>
