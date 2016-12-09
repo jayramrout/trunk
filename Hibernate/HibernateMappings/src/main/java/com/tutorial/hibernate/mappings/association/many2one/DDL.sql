@@ -1,5 +1,5 @@
 --Same address object can be associated with multiple employee objects
-create table EMPLOYEE ( 
+create table H2K_EMPLOYEE ( 
 	id INT NOT NULL auto_increment, 
 	first_name VARCHAR(20) default NULL, 
 	last_name VARCHAR(20) default NULL, 
@@ -8,7 +8,7 @@ create table EMPLOYEE (
 	PRIMARY KEY (id) 
 	);
 
-create table ADDRESS ( 
+create table HOME_ADDRESS ( 
 	id INT NOT NULL auto_increment, 
 	street_name VARCHAR(40) default NULL, 
 	city_name VARCHAR(40) default NULL, 

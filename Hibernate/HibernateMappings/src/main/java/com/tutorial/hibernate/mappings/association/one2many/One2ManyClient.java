@@ -29,13 +29,13 @@ public class One2ManyClient {
 		HashSet set1 = new HashSet();
 		
 		set1.add(new Certificate("SCJP")); 
-		set1.add(new Certificate("SCJP")); 
+		set1.add(new Certificate("Oracle")); 
 		set1.add(new Certificate("MBA"));
 
 		One2ManyClient ec = new One2ManyClient();
 
 		ec.addEmployee("Jayram", "Rout", 5000, set1);
-
+		listEmployees();
 	}
 	public Integer addEmployee(String fname, String lname, int salary, Set cert){ 
 		Session session = factory.openSession(); 
@@ -58,7 +58,7 @@ public class One2ManyClient {
 	}
 
 	/* Method to list all the employees detail */ 
-	public void listEmployees( ){ 
+	public static void listEmployees( ){ 
 		Session session = factory.openSession(); 
 		Transaction tx = null; 
 		try{ tx = session.beginTransaction(); 

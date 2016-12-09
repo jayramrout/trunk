@@ -19,7 +19,7 @@ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
             </bean>
         </jaxws:outInterceptors>
 		</jaxws:client>
-		<bean id="myPasswordCallback" class="com.tutorial.ws.ClientPasswordHandler"/>
+		<bean id="myPasswordCallback" class="com.tutorial.ws.client.ClientPasswordHandler"/>
 </beans>
 <!-- 
 The <jaxws:client> element in the client-beans.xml file specifies the client bean

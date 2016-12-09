@@ -14,7 +14,7 @@
     <description></description>
     <display-name>HelloWorld</display-name>
     <servlet-name>HelloWorld</servlet-name>
-    <servlet-class>jrout.tutorial.servlet.HelloWorld</servlet-class>
+    <servlet-class>jrout.tutorial.servlet.HelloWorldServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloWorld</servlet-name>

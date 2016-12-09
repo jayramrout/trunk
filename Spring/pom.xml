@@ -35,6 +35,7 @@
 		<module>Spring</module>
 		<module>SpringMVC</module>
 		<module>SpringMVCAnnotation</module>
+		<module>SpringEmployeeWeb</module>
 		<!--<module>SpringMVC</module>
 		<module>SpringMVCAnnotation</module>-->
 	</modules>

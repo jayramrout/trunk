@@ -3,10 +3,7 @@ package com.tutorial.restful;
 import static org.junit.Assert.*;
 
 import org.apache.cxf.jaxrs.client.WebClient;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 public class CategoryServiceTestCase {
 
@@ -28,6 +25,7 @@ public class CategoryServiceTestCase {
 	public void tearDown() throws Exception {
 	}*/
 
+	@Ignore
 	@Test
 	public void testGetCategoryDAO() {
 		String format = TYPE_XML;
