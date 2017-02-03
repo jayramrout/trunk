@@ -13,8 +13,8 @@ public class AppUpdate {
 		session.beginTransaction();
 
 		DBUser user = new DBUser();
-		user.setUserId(20);
-		user.setUsername("Siva");
+		user.setUserId(354);
+		user.setUsername("JayramBatch");
 		user.setCreatedBy("net Eng");
 //		user.setCreatedDate(new Date());
 		/**

@@ -31,8 +31,8 @@ public class EmployeeClient {
 			System.err.println("Failed to create sessionFactory object." + ex); 
 			throw new ExceptionInInitializerError(ex); 
 		}
-//		criteriaExamples();
-		projections();
+		criteriaExamples();
+//		projections();
 	}
 	
 	public static void criteriaExamples(){

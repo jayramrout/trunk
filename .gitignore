@@ -7,3 +7,7 @@
 ## Directory-based project format:
 .idea/
 out/
+
+/.settings/
+.classpath
+.project

@@ -1,3 +1,9 @@
 build
 target
 CoreJava.iml
+
+/bin/
+/target/
+/.settings/
+.classpath
+.project

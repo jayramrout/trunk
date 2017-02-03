@@ -16,7 +16,7 @@ public class CustomerClientSave {
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
 		
-		CompositeKey compositeKey = new CompositeKey(1, 7);
+		CompositeKey compositeKey = new CompositeKey(1, 8);
 		
 		CustomerBean customerBean = new CustomerBean();
 		customerBean.setKey(compositeKey);		
