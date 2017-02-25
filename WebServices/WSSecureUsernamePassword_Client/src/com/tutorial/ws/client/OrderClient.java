@@ -1,6 +1,7 @@
 package com.tutorial.ws.client;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.cxf.frontend.ClientProxy;
@@ -11,6 +12,9 @@ import org.apache.ws.security.handler.WSHandlerConstants;
 import com.tutorial.ws.Order;
 import com.tutorial.ws.OrderProcess;
 import com.tutorial.ws.OrderProcessImplService;
+
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.Handler;
 
 public class OrderClient {
 
@@ -29,7 +33,24 @@ public class OrderClient {
 
 		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
 		cxfEndpoint.getOutInterceptors().add(wssOut);
-		
+
+		/**
+		 * Adding the code below to add a SOAPHandler on client side.
+		 */
+
+		BindingProvider bp = (BindingProvider)process;
+		List<Handler> handlerChain = bp.getBinding().getHandlerChain();
+		handlerChain.add(new SOAPLoggingHandler());
+		bp.getBinding().setHandlerChain(handlerChain);
+
+		/**
+		 * Below Code is to add username pwd
+		 *
+		 * bp.getRequestContext().put(BindingProvider.USERNAME_PROPERTY,"SomeUsername");
+		   bp.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY,"SomePassword");
+		 */
+
+
 		Order order = new Order();
 		order.setCustomerID("001");
 		order.setItemID("Item01");
