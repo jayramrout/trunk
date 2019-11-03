@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Store xmlns:ns2="com.tutorial.jaxb">
+    <bookList>
+        <book>
+            <author>James Goslin</author>
+            <title>Core Java</title>
+            <isbn>909-8876548</isbn>
+            <publisher>Excel</publisher>
+        </book>
+        <book>
+            <author>Charles Don</author>
+            <title>Dot Net</title>
+            <isbn>674-9829475</isbn>
+            <publisher>Oreilly</publisher>
+        </book>
+        <book>
+            <author>Charles Don</author>
+            <title>Dot Net</title>
+            <isbn>674-9829475</isbn>
+            <publisher>Oreilly</publisher>
+        </book>
+    </bookList>
+    <location>Concord</location>
+    <name>Excel Store</name>
+</ns2:Store>
