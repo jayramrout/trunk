@@ -201,6 +201,14 @@
          <tem:intB>${#Project#Top_B}</tem:intB>
       </tem:Add>
    </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Add"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4a730a87-6eef-4c12-8680-32f9dd222bab" name="Add_2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Add>
+         <tem:intA>2</tem:intA>
+         <tem:intB>4</tem:intB>
+      </tem:Add>
+   </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Add"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d6c740c0-cdfa-49ff-be13-cac33e9d0462" isOneWay="false" action="http://tempuri.org/Divide" name="Divide" bindingOperationName="Divide" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f7607e0-2bd8-45e9-a6d4-30a7312734f9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
@@ -245,7 +253,7 @@ count(//ns1:AddResult)</path><content>1</content><allowWildcards>false</allowWil
 declare namespace ns1='http://tempuri.org/';
 //ns1:AddResponse</path><content>&lt;AddResponse xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   &lt;AddResult>*&lt;/AddResult>
-&lt;/AddResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="db15955c-78c7-4338-a129-9bceaaf4dc44" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_2" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="d7c3d828-2697-4185-b8b3-8a6fa7f920ef"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+&lt;/AddResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>TC_1_Prop</con:name><con:value>TC_1_Prop</con:value></con:property></con:properties></con:testCase><con:testCase id="db15955c-78c7-4338-a129-9bceaaf4dc44" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_2" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="d7c3d828-2697-4185-b8b3-8a6fa7f920ef"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:Add>
@@ -277,7 +285,7 @@ declare namespace ns1='http://tempuri.org/';
          <tem:intB>3</tem:intB>
       </tem:Subtract>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>20</con:value></con:property></con:properties></con:testCase><con:testCase id="590a2b7e-35eb-4ac7-a473-a920ce4a08c0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_3_Properties" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="447b43c2-1743-4dc4-b07d-805aea778710"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>20</con:value></con:property><con:property><con:name>Groovy_Access_Name</con:name><con:value>Peter</con:value></con:property></con:properties></con:testCase><con:testCase id="590a2b7e-35eb-4ac7-a473-a920ce4a08c0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_3_Properties" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="447b43c2-1743-4dc4-b07d-805aea778710"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:Add>
@@ -309,7 +317,7 @@ declare namespace ns1='http://tempuri.org/';
          <tem:intB>3</tem:intB>
       </tem:Subtract>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="adfbc646-c2c5-4f84-9754-dbe0125e01a2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>A_Prop</con:name><con:value>10</con:value></con:property><con:property><con:name>B_Prop</con:name><con:value>15</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="properties" name="MyProperties" id="6ce0950b-a6a4-46a8-9392-78bb8c497ea2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>MyProp_A</con:name><con:value>17</con:value></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>5</con:value></con:property></con:properties></con:testCase><con:testCase id="0c480e1e-5863-44cd-9ff1-e68ed3757358" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_3_PropertyTransfer" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="5f2e6715-712d-43c3-bd58-67b3b90a4117"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="adfbc646-c2c5-4f84-9754-dbe0125e01a2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>A_Prop</con:name><con:value>10</con:value></con:property><con:property><con:name>B_Prop</con:name><con:value>15</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="properties" name="MyProperties" id="6ce0950b-a6a4-46a8-9392-78bb8c497ea2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>MyProp_A</con:name><con:value>17</con:value></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>19</con:value></con:property></con:properties></con:testCase><con:testCase id="0c480e1e-5863-44cd-9ff1-e68ed3757358" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_4_PropertyTransfer" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="5f2e6715-712d-43c3-bd58-67b3b90a4117"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:Add>
@@ -345,4 +353,154 @@ declare namespace ns1='http://tempuri.org/';
          <tem:intB>9</tem:intB>
       </tem:Subtract>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="a452ff4e-bed5-406b-8f85-d3882c5545ab"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>A_Prop</con:name><con:value>10</con:value></con:property><con:property><con:name>B_Prop</con:name><con:value>15</con:value></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>5</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>Top_A</con:name><con:value>30</con:value></con:property><con:property><con:name>Top_B</con:name><con:value>12</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39f220c4-48a3-40e7-8169-fd0ace28fc96"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="a452ff4e-bed5-406b-8f85-d3882c5545ab"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>A_Prop</con:name><con:value>10</con:value></con:property><con:property><con:name>B_Prop</con:name><con:value>15</con:value></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>A</con:name><con:value>10</con:value></con:property><con:property><con:name>B</con:name><con:value>5</con:value></con:property></con:properties></con:testCase><con:testCase id="22a3e9f4-2094-4cf2-9976-b454442b1774" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_5_GroovyScript" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="f5c385ce-98da-4630-b5be-90671b23eac7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="a82c1bec-0f4e-45d4-9f1b-e02aebfa1cc9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">    
+<soapenv:Header/>    
+<soapenv:Body>       
+<tem:Add>          
+<tem:intA>100</tem:intA>          
+<tem:intB>62</tem:intB>       
+</tem:Add>    
+</soapenv:Body> 
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3e25d629-3905-4446-b6dd-8c2aff443782"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="8a0aa274-c4f3-4b53-a81a-378e2738ba3c"><con:settings/><con:config><script>// log : its used for printing logs
+// context : used for accessing and modify properties of TestCase
+
+// ${#TestCase#Groovy_A} -- Add
+/*
+ * context.expand is used for accessing any properties
+ */
+log.info context.expand('${#TestCase#Groovy_A}')
+
+/*
+ * context is used for properties . Below will not give any output
+ */
+log.info context.expand('${Add#Request#//ns1:intA}')
+
+/*
+ * For Loop
+ */
+for (int i=0;i&lt;5;i++){
+	log.info i
+}
+
+/*
+ * To Access values across the project, we can use testRunner
+ * Project 
+	TestSuite 
+		TestCase 
+		 	TestStep
+ *
+ */
+
+log.info testRunner.testCase.testSuite.testCases['TestCase_1'].getPropertyValue('TC_1_Prop');
+log.info testRunner.testCase.testSuite.getPropertyValue('TestSuiteProp');
+
+/*
+ * define a variable and use it in multiple places
+ */
+def testSuiteLevel = testRunner.testCase.testSuite; 
+log.info testSuiteLevel.project.testSuites['CalculatorTS'].getPropertyValue('TestSuiteProp');
+
+
+
+
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Call_Add_Using_Groovy" id="bcc8b893-0313-4c01-ad7e-d17a0a4bf9b2"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext;
+
+def addRequest = testRunner.testCase.testSteps['Add'].getPropertyValue('Request')
+log.info addRequest
+
+def addRequestXml = new XmlHolder(addRequest);
+
+addRequestXml.setNodeValue("//tem:Add/tem:intA",100);
+addRequestXml.setNodeValue("//tem:Add/tem:intB",62);
+def newAddRequestXml = addRequestXml.getXml();
+
+testRunner.testCase.testSteps['Add'].setPropertyValue("Request",newAddRequestXml);
+
+
+def addStep = testRunner.testCase.testSteps['Add'];
+def addStepContext = new WsdlTestRunContext(addStep);
+
+/*
+ * If you are in the same TestStep, then just use context
+ * else you have to create a context of the specific step. 
+ */
+addStep.run(testRunner,context);
+
+def addResponse = testRunner.testCase.testSteps['Add'].getPropertyValue('Response')
+def addResponseXml = new XmlHolder(addResponse);
+
+log.info addResponseXml.getNodeValue("//ns1:AddResponse/ns1:AddResult");
+
+//assert 162 == addResponseXml.getNodeValue("//ns1:AddResponse/ns1:AddResult")
+
+</script></con:config></con:testStep><con:properties><con:property><con:name>Groovy_A</con:name><con:value>10</con:value></con:property><con:property><con:name>Groovy_B</con:name><con:value>5</con:value></con:property></con:properties></con:testCase><con:testCase id="5620428b-716f-4c18-858c-fafeddca3cbc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy_Automation" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="67f54306-dfc7-4d5a-87b0-4a5b6c0cfaf6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="75d5c86c-7eaa-48f6-8516-e05d1323d080"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Add>
+         <tem:intA>5</tem:intA>
+         <tem:intB>7</tem:intB>
+      </tem:Add>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0b47cce1-840e-46a4-89c2-04285e76b9d5"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Basics_Groovy" id="7917653e-94c6-43ee-b242-f3d90a4a956a"><con:settings/><con:config><script>//log
+//context
+//testRunner
+
+log.info "Hello Groovy Script"
+
+for(int i = 0; i &lt; 5;i++){
+	log.info(i)
+}
+
+
+if(4==5){
+	log.info("I am in true statement");	
+}
+
+log.info context.expand('${#TestCase#Groovy_Prop1}')
+
+// TestCase_2 -> CustomProp -> Groovy_Access_Name
+/*
+ * Project
+ * 	TestSuite
+ * 		TestCase
+ * 			TestStep
+ */
+
+testRunner.testCase.testSuite.testCases['TestCase_2'].getPropertyValue('Groovy_Access_Name');
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Add_Automation" id="eb605f64-b0bc-431d-a2e3-a89d84d07ddf"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext;
+
+
+import groovy.json.JsonSlurper;
+
+
+def addStep = testRunner.testCase.testSteps['Add'];
+
+def addRequest = addStep.getPropertyValue('Request');
+
+log.info addRequest;
+
+def intA = 5;
+def intB = 7;
+
+def xmlAddRequest = new XmlHolder(addRequest);
+xmlAddRequest.setNodeValue("//tem:Add/tem:intA", intA);
+xmlAddRequest.setNodeValue("//tem:Add/tem:intB", intB);
+def newXmlAddRequest = xmlAddRequest.getXml();
+
+addStep.setPropertyValue('Request',newXmlAddRequest);
+
+//def testContext = new WsdlTestRunContext(addStep);
+//addStep.run(testRunner,testContext);
+
+addStep.run(testRunner,context);
+def addResponse = addStep.getPropertyValue('Response');
+def xmlAddResponse = new XmlHolder(addResponse);
+xmlAddResponse.getNodeValue("//ns1:AddResponse/ns1:AddResult");
+//testRunner.testCase.testSuite.project
+// store the response in a variagle and assert it
+//assert 12 == variable</script></con:config></con:testStep><con:properties><con:property><con:name>Groovy_Prop1</con:name><con:value>588</con:value></con:property><con:property><con:name>Groovy_Prop2</con:name><con:value>15</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>TestSuiteProp</con:name><con:value>Test Suite Prop</con:value></con:property></con:properties></con:testSuite><con:testSuite id="a9bb8734-a5b9-4851-a4cc-c1db9f52c5b3" name="test"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:properties><con:property><con:name>Top_A</con:name><con:value>30</con:value></con:property><con:property><con:name>Top_B</con:name><con:value>12</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
