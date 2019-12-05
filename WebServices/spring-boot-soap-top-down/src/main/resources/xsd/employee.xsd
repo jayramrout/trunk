@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tutorial.jrout/employee/schemas"
+	xmlns:emp="http://tutorial.jrout/employee/schemas" elementFormDefault="qualified">
+	<element name="EmployeeRequest">
+		<complexType>
+			<all>
+				<element name="Employee" type="emp:EmployeeType"></element>
+			</all>
+		</complexType>
+	</element>
+	<element name="EmployeeLeaveRequest">
+		<complexType>
+			<all>
+				<element name="Employee" type="emp:EmployeeType"></element>
+			</all>
+		</complexType>
+	</element>
+	<element name="EmployeeMessage">
+		<complexType>
+			<all>
+				<element name="message" type="string"></element>
+			</all>
+		</complexType>
+	</element>
+	<complexType name="EmployeeType">
+		<sequence>
+			<element name="FirstName"  type="string"/>
+			<element name="LastName"  type="string"/>
+		</sequence>
+	</complexType>
+</schema>
