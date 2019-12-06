@@ -24,14 +24,15 @@ public class WebServiceConfig {
     }
     //http://localhost:8080/ws/employee.wsdl
     @Bean(name = "employee")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema studentsSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema employeeSchema) {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
         definition.setPortTypeName("EmployeePort");
         definition.setTargetNamespace("http://tutorial.jrout/employee/schemas");
         definition.setLocationUri("/ws");
-        definition.setSchema(studentsSchema);
+        definition.setSchema(employeeSchema);
         return definition;
     }
+
     @Bean
     public XsdSchema employeeSchema() {
         return new SimpleXsdSchema(new ClassPathResource("xsd/employee.xsd"));
