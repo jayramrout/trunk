@@ -1,5 +1,7 @@
 package jrout.tutorial.hibernate.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;

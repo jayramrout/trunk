@@ -14,7 +14,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
-
+/*
+Java Persistence Query Language (JPQL)
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JPQLTest {

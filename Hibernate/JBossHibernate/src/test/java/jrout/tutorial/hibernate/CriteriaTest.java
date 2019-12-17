@@ -56,13 +56,13 @@ public class CriteriaTest {
 
 	@Test
 	public void all_employees_having() {
+
 		CriteriaBuilder cb = em.getCriteriaBuilder();
+
 		CriteriaQuery<Employees> cq = cb.createQuery(Employees.class);
 		Root<Employees> employeesRoot = cq.from(Employees.class);
-
 		Predicate lastName = cb.like(employeesRoot.get("lastName"), "Jo%");
 		cq.where(lastName);
-
 		TypedQuery<Employees> query = em.createQuery(cq.select(employeesRoot));
 		List<Employees> resultList = query.getResultList();
 

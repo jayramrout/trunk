@@ -5,5 +5,5 @@ package jrout.tutorial.hibernate.dao;
 import jrout.tutorial.hibernate.model.Countries;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CountriesRepository extends CrudRepository<Countries , Long> {
+public interface CountriesRepository extends CrudRepository<Countries , String> {
 }

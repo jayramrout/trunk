@@ -18,13 +18,23 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+
 public class NativeQueryTest {
 
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
+
+	@Autowired
+	private EmployeesRepository employeesRepository;
 
 	@Before
 	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void findEmployee() throws Exception {
+		employeesRepository.findAll();
+
 	}
 
 	@Test
@@ -78,8 +88,9 @@ public class NativeQueryTest {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Employees> cq = cb.createQuery(Employees.class);
 		Root<Employees> employeesRoot = cq.from(Employees.class);
+		// select * from employees
 
-		Join<Object, Object> join = employeesRoot.join("departments", JoinType.INNER);
+//		Join<Object, Object> join = employeesRoot.join("departments", JoinType.INNER);
 
 		TypedQuery<Employees> query = em.createQuery(cq.select(employeesRoot));
 		List<Employees> resultList = query.getResultList();
