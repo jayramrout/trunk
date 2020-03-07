@@ -17,10 +17,11 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/xuggle/xuggle-xuggler -->
 		<dependency>
-			<groupId>xuggle</groupId>
-			<artifactId>xuggle-xuggler</artifactId>
-			<version>5.4</version>
+		    <groupId>xuggle</groupId>
+		    <artifactId>xuggle-xuggler</artifactId>
+		    <version>5.4</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -39,7 +40,7 @@
 	<repositories>
 		<repository>
 			<id>xuggle repo</id>
-			<url>http://xuggle.googlecode.com/svn/trunk/repo/share/java/</url>
+			<url>https://www.dcm4che.org/maven2/</url>
 		</repository>
 	</repositories>
 </project>
