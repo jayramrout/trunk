@@ -23,8 +23,7 @@ public class VideoFileDuration {
 
 		IContainer container = IContainer.make();
 		List<FileDetails> list = new ArrayList<>();
-//		File directory = new File("/Users/jrout/Google Drive/JAVA");
-		File directory = new File("/Users/jrout/Documents/My-Documents/H2kInfosys/WEB-SERVICES/Batch_01");
+		File directory = new File("/Users/jrout/Documents/Recordings");
 		List<String> fileList = read(directory);
 
 		GregorianCalendar calendar = new GregorianCalendar(TimeZone.getTimeZone("US/Eastern"));
@@ -60,7 +59,7 @@ public class VideoFileDuration {
 	public List<String> read(File file) {
 		if (file.isFile()) {
 			String fileName = file.getName();
-			if((fileName.startsWith("2019") || fileName.startsWith("Demo")) && (fileName.toLowerCase().endsWith(".mp4") || fileName.toLowerCase().endsWith(".wmv")))
+			if((fileName.toLowerCase().endsWith(".mp4") || fileName.toLowerCase().endsWith(".wmv")))
 				filePathList.add(file.getAbsolutePath());
 		} else if (file.isDirectory()) {
 			File[] listOfFiles = file.listFiles();
