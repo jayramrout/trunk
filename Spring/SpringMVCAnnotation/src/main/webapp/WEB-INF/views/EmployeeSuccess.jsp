@@ -26,6 +26,7 @@
 			<td>Receive Newsletter :</td>
 			<td>${employee.receiveNewsletter}</td>
 		</tr>
+
 		<tr>
 			<td>Favourite Web Frameworks :</td>
 			<td><c:forEach items="${employee.favFramework}" var="current">

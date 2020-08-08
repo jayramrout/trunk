@@ -69,11 +69,14 @@ public class EmployeeController {
 //		System.out.println("EmployeeController.initForm()" + request.getSession().getId());
 	public String initForm(ModelMap model) {
 		Employee cust = new Employee();
+		cust.setUserName("Peter");
 		cust.setFavFramework(new String[] { "Spring MVC" });
 		cust.setSex("F");
 		cust.setJavaSkills("Hibernate");
 		cust.setFavNumber("Number 3");
 		cust.setSecretValue("I'm hidden value");
+
+
 		model.addAttribute("employee", cust);
 		return "EmployeeForm";
 	}

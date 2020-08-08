@@ -37,4 +37,12 @@ public class WebServiceConfig {
     public XsdSchema employeeSchema() {
         return new SimpleXsdSchema(new ClassPathResource("xsd/employee.xsd"));
     }
+    @Bean
+    public Jaxb2Marshaller marshaller() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        // this package must match the package in the <generatePackage> specified in
+        // pom.xml
+        marshaller.setContextPath("tutorial.jrout.employee.schemas");
+        return marshaller;
+    }
 }
