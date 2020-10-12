@@ -18,7 +18,7 @@
         <wsdl4j.version>1.6.2</wsdl4j.version>
         <icu4j.version>3.4.4</icu4j.version>
         <commons-dbcp.version>1.2.2</commons-dbcp.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-io.version>1.3.2</commons-io.version>
         <xercesImpl.version>2.8.1</xercesImpl.version>
