@@ -4,7 +4,7 @@
   <artifactId>WSSecureUsernamePassword_Client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-		<cxf.version>2.2.1</cxf.version>
+		<cxf.version>2.6.12</cxf.version>
 	</properties>
 	<dependencies>
 		<dependency>
